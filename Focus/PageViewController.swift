@@ -15,8 +15,13 @@ class PageViewController: UIPageViewController {
         
         dataSource = self
         
-        if let firstViewController = orderedViewControllers.first {
-            setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
+//        if let firstViewController = Optional(orderedViewControllers[1]){
+//            setViewControllers([firstViewController],
+//                               direction: .forward, animated: true, completion: nil)
+//        }
+        if let firstViewController = orderedViewControllers.first{
+            setViewControllers([firstViewController],
+                               direction: .forward, animated: true, completion: nil)
         }
     }
 
@@ -25,15 +30,34 @@ class PageViewController: UIPageViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //array to reference the view controllers to page through
     private(set) lazy var orderedViewControllers: [UIViewController] = {
-        return [self.functionViewController("Doing"), self.functionViewController("Main"), self.functionViewController("Done")]
+        return [self.functionViewController(page: "Doing"),
+                self.functionViewController(page: "Main"),
+                self.functionViewController(page: "Done")]
     }()
     
-    private func functionViewController(_ page: String) -> UIViewController {
+    private func functionViewController(page: String) -> UIViewController {
         return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"\(page)ViewController")
     }
     
-    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}
+
+extension PageViewController: UIPageViewControllerDataSource {
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
             return nil
         }
@@ -51,7 +75,7 @@ class PageViewController: UIPageViewController {
         return orderedViewControllers[previousIndex]
     }
     
-    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
             return nil
         }
@@ -68,28 +92,6 @@ class PageViewController: UIPageViewController {
         }
         
         return orderedViewControllers[nextIndex]
-    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}
-
-extension PageViewController: UIPageViewControllerDataSource {
-    
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        return nil
-    }
-    
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        return nil
     }
     
 }

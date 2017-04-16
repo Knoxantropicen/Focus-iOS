@@ -15,6 +15,7 @@
 		9DFC0E351EA26D7800FFEF97 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFC0E341EA26D7800FFEF97 /* MainViewController.swift */; };
 		9DFC0E3B1EA2FE6A00FFEF97 /* DoingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFC0E3A1EA2FE6A00FFEF97 /* DoingTableViewController.swift */; };
 		9DFC0E3D1EA2FE7400FFEF97 /* DoneTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFC0E3C1EA2FE7400FFEF97 /* DoneTableViewController.swift */; };
+		9DFC0E411EA310FA00FFEF97 /* DoingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFC0E401EA310FA00FFEF97 /* DoingTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		9DFC0E341EA26D7800FFEF97 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		9DFC0E3A1EA2FE6A00FFEF97 /* DoingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoingTableViewController.swift; sourceTree = "<group>"; };
 		9DFC0E3C1EA2FE7400FFEF97 /* DoneTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneTableViewController.swift; sourceTree = "<group>"; };
+		9DFC0E401EA310FA00FFEF97 /* DoingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoingTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			children = (
 				9DFC0E331EA26D0F00FFEF97 /* Supporting Files */,
 				9DFC0E231EA262B400FFEF97 /* Main.storyboard */,
+				9DFC0E401EA310FA00FFEF97 /* DoingTableViewCell.swift */,
 				9DFC0E3A1EA2FE6A00FFEF97 /* DoingTableViewController.swift */,
 				9DFC0E3C1EA2FE7400FFEF97 /* DoneTableViewController.swift */,
 				9DFC0E341EA26D7800FFEF97 /* MainViewController.swift */,
@@ -159,6 +162,7 @@
 				9DFC0E321EA26CFF00FFEF97 /* PageViewController.swift in Sources */,
 				9DFC0E201EA262B400FFEF97 /* AppDelegate.swift in Sources */,
 				9DFC0E3D1EA2FE7400FFEF97 /* DoneTableViewController.swift in Sources */,
+				9DFC0E411EA310FA00FFEF97 /* DoingTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
