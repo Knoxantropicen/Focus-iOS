@@ -10,24 +10,30 @@ import UIKit
 
 class DoingTableViewController: UITableViewController {
     
-    private static var affairs = [Array<String>(), Array<String>()]
+    private static var affairs = [Array<String>(), Array<String>()] {
+        didSet {
+            for item in affairs[0] {
+                print(item)
+            }
+            for item in affairs[1] {
+                print(item)
+            }
+            print("done\n")
+        }
+    }
     
     func addAffair(newAffair affair: String) {
-        if let currentAffair = DoingTableViewController.affairs[0].first {
-            DoingTableViewController.affairs[1].insert(currentAffair, at: 0)
+        let mainAffair = DoingTableViewController.affairs[0]
+        if !mainAffair.isEmpty {
+            DoingTableViewController.affairs[1].insert(mainAffair.first!, at: 0)
             DoingTableViewController.affairs[0].removeAll()
         }
         DoingTableViewController.affairs[0].append(affair)
+//        self.tableView.reloadData()
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,13 +54,10 @@ class DoingTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DoingAffair", for: indexPath)
-
-        // Configure the cell...
         let affair = DoingTableViewController.affairs[indexPath.section][indexPath.row]
         if let affairCell = cell as? DoingTableViewCell {
             affairCell.affair = affair
         }
-
         return cell
     }
  

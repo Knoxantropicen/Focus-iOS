@@ -15,14 +15,10 @@ class PageViewController: UIPageViewController {
         
         dataSource = self
         
-//        if let firstViewController = Optional(orderedViewControllers[1]){
-//            setViewControllers([firstViewController],
-//                               direction: .forward, animated: true, completion: nil)
-//        }
-        if let firstViewController = orderedViewControllers.first{
-            setViewControllers([firstViewController],
+        let firstViewController = orderedViewControllers[1]
+        setViewControllers([firstViewController],
                                direction: .forward, animated: true, completion: nil)
-        }
+
     }
 
     override func didReceiveMemoryWarning() {
