@@ -18,6 +18,7 @@ class MainViewController: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         
         typingArea.delegate = self
+//        typingArea.becomeFirstResponder()
         
         let tapGesture = UITapGestureRecognizer(target: self, action:#selector(MainViewController.hideKeyboard))
         view.addGestureRecognizer(tapGesture)
@@ -45,7 +46,6 @@ class MainViewController: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func createAffair(_ sender: UIButton) {
-        print("succeed")
         if typingArea.text == textModel {
             return
         }

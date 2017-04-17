@@ -14,36 +14,76 @@
         <scene sceneID="Pl5-7I-gZz">
             <objects>
                 <tableViewController storyboardIdentifier="DoingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5d2-yc-LmM" customClass="DoingTableViewController" customModule="Focus" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="79" sectionHeaderHeight="28" sectionFooterHeight="28" id="YdL-i6-Ncm">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" id="YdL-i6-Ncm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DoingAffair" rowHeight="79" id="wh4-Mh-bVu" customClass="DoingTableViewCell" customModule="Focus" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="79"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MainDoingAffair" rowHeight="68" id="wh4-Mh-bVu" customClass="MainDoingTableViewCell" customModule="Focus" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="68"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wh4-Mh-bVu" id="ewd-d8-1cb">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="78.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="67.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvm-2E-CoK">
-                                            <rect key="frame" x="18" y="29" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvm-2E-CoK">
+                                            <rect key="frame" x="18" y="0.0" width="334" height="60"/>
+                                            <attributedString key="attributedText">
+                                                <fragment content="Label">
+                                                    <attributes>
+                                                        <font key="NSFont" size="28" name="HelveticaNeue-UltraLightItalic"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="dvm-2E-CoK" firstAttribute="top" secondItem="ewd-d8-1cb" secondAttribute="topMargin" constant="21" id="4dc-Pm-0nc"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="dvm-2E-CoK" secondAttribute="trailing" constant="307" id="NFP-0q-GJU"/>
+                                        <constraint firstItem="dvm-2E-CoK" firstAttribute="top" secondItem="ewd-d8-1cb" secondAttribute="topMargin" constant="-8" id="4dc-Pm-0nc"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="dvm-2E-CoK" secondAttribute="trailing" constant="15" id="NFP-0q-GJU"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="dvm-2E-CoK" secondAttribute="leading" constant="-10" id="wQt-ag-iSX"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="dvm-2E-CoK" secondAttribute="bottom" constant="29" id="5oQ-nu-f3Y"/>
+                                    <constraint firstAttribute="bottom" secondItem="dvm-2E-CoK" secondAttribute="bottom" constant="8" id="5oQ-nu-f3Y"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="affairDescription" destination="dvm-2E-CoK" id="8xN-C1-hMJ"/>
+                                    <outlet property="mainAffairDescription" destination="dvm-2E-CoK" id="dcL-p7-50Y"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DoingAffair" rowHeight="68" id="oQw-TC-ycn" customClass="DoingTableViewCell" customModule="Focus" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="96" width="375" height="68"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oQw-TC-ycn" id="c1t-ga-WxI">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="67.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ac6-pu-iiL">
+                                            <rect key="frame" x="18" y="0.0" width="334" height="60"/>
+                                            <attributedString key="attributedText">
+                                                <fragment content="Label">
+                                                    <attributes>
+                                                        <font key="NSFont" size="20" name="HelveticaNeue-UltraLightItalic"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="ac6-pu-iiL" secondAttribute="trailing" constant="15" id="9bC-1d-0zC"/>
+                                        <constraint firstItem="ac6-pu-iiL" firstAttribute="top" secondItem="c1t-ga-WxI" secondAttribute="topMargin" constant="-8" id="AyU-aD-Z3y"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="ac6-pu-iiL" secondAttribute="leading" constant="-10" id="vOC-gF-ddS"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="ac6-pu-iiL" secondAttribute="bottom" constant="8" id="5sW-hP-APA"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="affairDescription" destination="ac6-pu-iiL" id="HfX-2A-sw1"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -55,7 +95,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bxu-Wp-BB9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-246" y="451"/>
+            <point key="canvasLocation" x="-247.19999999999999" y="450.22488755622192"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">

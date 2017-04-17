@@ -10,10 +10,14 @@ import UIKit
 
 class DoingTableViewController: UITableViewController {
     
-    private static var affairs = Array(repeating: "learn", count: 4)
+    private static var affairs = [Array<String>(), Array<String>()]
     
     func addAffair(newAffair affair: String) {
-        DoingTableViewController.affairs.insert(affair, at: 0)
+        if let currentAffair = DoingTableViewController.affairs[0].first {
+            DoingTableViewController.affairs[1].insert(currentAffair, at: 0)
+            DoingTableViewController.affairs[0].removeAll()
+        }
+        DoingTableViewController.affairs[0].append(affair)
     }
 
     override func viewDidLoad() {
@@ -34,11 +38,11 @@ class DoingTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return DoingTableViewController.affairs.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DoingTableViewController.affairs.count
+        return DoingTableViewController.affairs[section].count
     }
 
     
@@ -46,7 +50,7 @@ class DoingTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DoingAffair", for: indexPath)
 
         // Configure the cell...
-        let affair = DoingTableViewController.affairs[indexPath.row]
+        let affair = DoingTableViewController.affairs[indexPath.section][indexPath.row]
         if let affairCell = cell as? DoingTableViewCell {
             affairCell.affair = affair
         }
