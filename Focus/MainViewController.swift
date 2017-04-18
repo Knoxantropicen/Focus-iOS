@@ -65,12 +65,6 @@ class MainViewController: UIViewController, UITextViewDelegate {
         typingArea.text = ""
         hideKeyboard()
     }
-    
-    @IBOutlet weak var topRightOperations: UIStackView!
-    
-    override func viewWillLayoutSubviews() {
-        
-    }
 
     
 }

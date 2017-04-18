@@ -14,7 +14,6 @@ class DoingTableViewController: UITableViewController {
     
     func addAffair(newAffair affair: String) {
         DoingTableViewController.affairs.insert(affair, at: 0)
-//        self.tableView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -23,15 +22,6 @@ class DoingTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "MainDoingAffair")
-//        if let mainAffairCell = cell as? DoingTableViewCell {
-//            let mainView = MainViewController()
-//            if let currentAffair = mainView.typingArea?.text {
-//                mainAffairCell.affair = currentAffair
-//            } else {
-//                mainAffairCell.affair = "(Empty)"
-//            }
-//        }
         self.tableView.reloadData()
     }
 
@@ -51,9 +41,9 @@ class DoingTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let mainCell = tableView.dequeueReusableCell(withIdentifier: "MainDoingAffair", for: indexPath)
+            let mainCell = tableView.dequeueReusableCell(withIdentifier: "MainAffair", for: indexPath)
             let mainAffair = MainViewController.typingText
-            if let mainAffairCell = mainCell as? MainDoingTableViewCell {
+            if let mainAffairCell = mainCell as? MainTableViewCell {
                 mainAffairCell.mainAffair = mainAffair
             }
             return mainCell

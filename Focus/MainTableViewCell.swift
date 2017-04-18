@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainDoingTableViewCell: UITableViewCell {
+class MainTableViewCell: UITableViewCell {
 
     @IBOutlet weak var mainAffairDescription: UILabel!
     
