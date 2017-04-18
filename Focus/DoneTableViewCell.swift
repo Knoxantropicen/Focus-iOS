@@ -9,6 +9,14 @@
 import UIKit
 
 class DoneTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var affairDescription: UILabel!
+    
+    var affair = String() {
+        didSet {
+            affairDescription?.text = affair
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

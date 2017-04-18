@@ -30,7 +30,7 @@ class MainViewController: UIViewController, UITextViewDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if typingArea.text == textModel {
-            MainViewController.typingText = "(Swipe right and add something...)"
+            MainViewController.typingText = "(Swipe back and add something...)"
         } else {
             MainViewController.typingText = typingArea.text
         }
@@ -66,5 +66,14 @@ class MainViewController: UIViewController, UITextViewDelegate {
         hideKeyboard()
     }
 
+    @IBAction func finishAffair(_ sender: UIButton) {
+        if typingArea.text == textModel {
+            return
+        }
+        let finishAffair = DoneTableViewController()
+        finishAffair.addAffair(newAffair: typingArea.text)
+        typingArea.text = ""
+        hideKeyboard()
+    }
     
 }

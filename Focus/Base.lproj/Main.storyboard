@@ -129,6 +129,9 @@
                                                 </fragment>
                                             </attributedString>
                                         </state>
+                                        <connections>
+                                            <action selector="finishAffair:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sHF-Fx-ul8"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SfF-CJ-5HD">
                                         <rect key="frame" x="53" y="0.0" width="30" height="62"/>
@@ -182,7 +185,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oWg-uJ-y4W" id="fTT-XA-til">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hze-Di-PRM" userLabel="Msin Affair Description">
@@ -206,14 +209,40 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <outlet property="mainAffairDescription" destination="hze-Di-PRM" id="VwZ-oW-emf"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DoneAffair" rowHeight="75" id="HRJ-nD-bv6" customClass="DoneTableViewCell" customModule="Focus" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="118" width="375" height="75"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DoneAffair" rowHeight="68" id="HRJ-nD-bv6" customClass="DoneTableViewCell" customModule="Focus" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="118" width="375" height="68"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HRJ-nD-bv6" id="6rS-ct-V6F">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="67.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TIh-6v-ny9">
+                                            <rect key="frame" x="20" y="6" width="334" height="53"/>
+                                            <attributedString key="attributedText">
+                                                <fragment content="Label">
+                                                    <attributes>
+                                                        <font key="NSFont" size="20" name="HelveticaNeue-UltraLightItalic"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="TIh-6v-ny9" secondAttribute="trailing" constant="13" id="MoL-oC-bZu"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="TIh-6v-ny9" secondAttribute="bottom" constant="0.5" id="cpf-Fd-fs9"/>
+                                        <constraint firstItem="TIh-6v-ny9" firstAttribute="leading" secondItem="6rS-ct-V6F" secondAttribute="leadingMargin" constant="12" id="eQa-kF-Eun"/>
+                                        <constraint firstItem="TIh-6v-ny9" firstAttribute="top" secondItem="6rS-ct-V6F" secondAttribute="topMargin" constant="-2" id="v3d-gw-vDg"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="affairDescription" destination="TIh-6v-ny9" id="hFM-gW-IDO"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
