@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D60193E1EA6007100BA3649 /* MainDoingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D60193D1EA6007100BA3649 /* MainDoingTableViewCell.swift */; };
 		9DFC0E201EA262B400FFEF97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFC0E1F1EA262B400FFEF97 /* AppDelegate.swift */; };
 		9DFC0E251EA262B400FFEF97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DFC0E231EA262B400FFEF97 /* Main.storyboard */; };
 		9DFC0E271EA262B400FFEF97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DFC0E261EA262B400FFEF97 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9D60193D1EA6007100BA3649 /* MainDoingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainDoingTableViewCell.swift; sourceTree = "<group>"; };
 		9DFC0E1C1EA262B400FFEF97 /* Focus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Focus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DFC0E1F1EA262B400FFEF97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DFC0E241EA262B400FFEF97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 			children = (
 				9DFC0E331EA26D0F00FFEF97 /* Supporting Files */,
 				9DFC0E231EA262B400FFEF97 /* Main.storyboard */,
+				9D60193D1EA6007100BA3649 /* MainDoingTableViewCell.swift */,
 				9DFC0E401EA310FA00FFEF97 /* DoingTableViewCell.swift */,
 				9DFC0E3A1EA2FE6A00FFEF97 /* DoingTableViewController.swift */,
 				9DFC0E3C1EA2FE7400FFEF97 /* DoneTableViewController.swift */,
@@ -158,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9DFC0E351EA26D7800FFEF97 /* MainViewController.swift in Sources */,
+				9D60193E1EA6007100BA3649 /* MainDoingTableViewCell.swift in Sources */,
 				9DFC0E3B1EA2FE6A00FFEF97 /* DoingTableViewController.swift in Sources */,
 				9DFC0E321EA26CFF00FFEF97 /* PageViewController.swift in Sources */,
 				9DFC0E201EA262B400FFEF97 /* AppDelegate.swift in Sources */,

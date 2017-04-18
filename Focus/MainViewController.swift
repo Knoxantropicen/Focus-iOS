@@ -12,6 +12,8 @@ class MainViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var typingArea: UITextView!
     
+    static var typingText: String = ""
+    
     private let textModel = "Type your sentence here..."
     
     override func viewDidLoad() {
@@ -23,6 +25,15 @@ class MainViewController: UIViewController, UITextViewDelegate {
         let tapGesture = UITapGestureRecognizer(target: self, action:#selector(MainViewController.hideKeyboard))
         view.addGestureRecognizer(tapGesture)
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if typingArea.text == textModel {
+            MainViewController.typingText = "(Swipe right and add something...)"
+        } else {
+            MainViewController.typingText = typingArea.text
+        }
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {

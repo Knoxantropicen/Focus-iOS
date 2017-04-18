@@ -10,15 +10,10 @@ import UIKit
 
 class DoingTableViewController: UITableViewController {
     
-    private static var affairs = [Array<String>(), Array<String>()]
+    private static var affairs = Array<String>()
     
     func addAffair(newAffair affair: String) {
-        let mainAffair = DoingTableViewController.affairs[0]
-        if !mainAffair.isEmpty {
-            DoingTableViewController.affairs[1].insert(mainAffair.first!, at: 0)
-            DoingTableViewController.affairs[0].removeAll()
-        }
-        DoingTableViewController.affairs[0].append(affair)
+        DoingTableViewController.affairs.insert(affair, at: 0)
 //        self.tableView.reloadData()
     }
     
@@ -28,27 +23,48 @@ class DoingTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "MainDoingAffair")
+//        if let mainAffairCell = cell as? DoingTableViewCell {
+//            let mainView = MainViewController()
+//            if let currentAffair = mainView.typingArea?.text {
+//                mainAffairCell.affair = currentAffair
+//            } else {
+//                mainAffairCell.affair = "(Empty)"
+//            }
+//        }
         self.tableView.reloadData()
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return DoingTableViewController.affairs.count
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DoingTableViewController.affairs[section].count
+        if section == 0 {
+            return 1
+        } else {
+            return DoingTableViewController.affairs.count
+        }
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DoingAffair", for: indexPath)
-        let affair = DoingTableViewController.affairs[indexPath.section][indexPath.row]
-        if let affairCell = cell as? DoingTableViewCell {
-            affairCell.affair = affair
+        if indexPath.section == 0 {
+            let mainCell = tableView.dequeueReusableCell(withIdentifier: "MainDoingAffair", for: indexPath)
+            let mainAffair = MainViewController.typingText
+            if let mainAffairCell = mainCell as? MainDoingTableViewCell {
+                mainAffairCell.mainAffair = mainAffair
+            }
+            return mainCell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DoingAffair", for: indexPath)
+            let affair = DoingTableViewController.affairs[indexPath.row]
+            if let affairCell = cell as? DoingTableViewCell {
+                affairCell.affair = affair
+            }
+            return cell
         }
-        return cell
     }
     
     
