@@ -12,12 +12,16 @@ class MainViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var typingArea: UITextView!
     
+//    var contentSize = CGSize()
+    
     static var typingText: String = ""
     
     private let textModel = "Type your sentence here..."
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        typingArea.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
         
         typingArea.delegate = self
 //        typingArea.becomeFirstResponder()
@@ -75,5 +79,15 @@ class MainViewController: UIViewController, UITextViewDelegate {
         typingArea.text = ""
         hideKeyboard()
     }
+    
+//    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+//        if let tv = object as? UITextView {
+//            var topCorrect: CGFloat? = (tv.bounds.size.height - tv.contentSize.height * tv.zoomScale) / 2.0
+//            topCorrect = (topCorrect! < CGFloat(0.0) ? 0.0 : topCorrect)
+//            tv.contentOffset = CGPoint()
+//            tv.contentOffset.x = 0
+//            tv.contentOffset.y = -topCorrect!
+//        }
+//    }
     
 }
