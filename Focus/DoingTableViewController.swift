@@ -18,6 +18,7 @@ class DoingTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.tableFooterView = UIView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,6 +55,15 @@ class DoingTableViewController: UITableViewController {
                 affairCell.affair = affair
             }
             return cell
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return 90
+        }
+        else {
+            return 68
         }
     }
     

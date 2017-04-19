@@ -18,6 +18,7 @@ class DoneTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.tableFooterView = UIView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,4 +57,50 @@ class DoneTableViewController: UITableViewController {
             return cell
         }
     }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            return
+        }
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            DoneTableViewController.affairs.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+            // handle delete (by removing the data from your array and updating the tableview)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return 90
+        }
+        else {
+            return 68
+        }
+    }
+    
+//        override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//            if indexPath.section == 0 {
+//                return
+//            }
+//            if editingStyle == .delete {
+//                DoneTableViewController.affairs.remove(at: indexPath.row)
+//                tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+//            }
+//        }
+//    
+//        override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//            if indexPath.section == 0 {
+//                return nil
+//            }
+//            let deleteRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.destructive, title: "Delete", handler: { (action: UITableViewRowAction, index: IndexPath) in
+//                DoneTableViewController.affairs.remove(at: indexPath.row)
+//                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+//            })
+//            let actions = [deleteRowAction]
+//            return actions
+//        }
 }
