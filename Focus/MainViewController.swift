@@ -7,14 +7,17 @@
 //
 
 import UIKit
+import UserNotifications
 
 class MainViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var typingArea: UITextView!
     
 //    var contentSize = CGSize()
-    
+    static var text = PushNotification()
     static var typingText: String = ""
+    
+    var isGrantedNotificationAccess: Bool = false
     
     private let textModel = "Type your sentence here..."
     
@@ -28,6 +31,14 @@ class MainViewController: UIViewController, UITextViewDelegate {
         let tapGesture = UITapGestureRecognizer(target: self, action:#selector(MainViewController.hideKeyboard))
         view.addGestureRecognizer(tapGesture)
         // Do any additional setup after loading the view.
+        
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: [.alert, .sound, .badge],
+            completionHandler: { (granted, error) in
+                self.isGrantedNotificationAccess = granted
+            }
+        )
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -36,6 +47,8 @@ class MainViewController: UIViewController, UITextViewDelegate {
             MainViewController.typingText = "(Swipe back and add something...)"
         } else {
             MainViewController.typingText = typingArea.text
+            
+            MainViewController.text.replace(title: typingArea.text, dateCreated: Date(timeIntervalSinceNow: 0), isQuestion: true)
         }
     }
     
@@ -46,6 +59,7 @@ class MainViewController: UIViewController, UITextViewDelegate {
         }
         if text.contains("\n") {
             hideKeyboard()
+            MainViewController.text.replace(title: typingArea.text, dateCreated: Date(timeIntervalSinceNow: 0), isQuestion: true)
             return false
         }
         return true

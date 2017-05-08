@@ -20,7 +20,7 @@
 		9DFC0E3B1EA2FE6A00FFEF97 /* DoingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFC0E3A1EA2FE6A00FFEF97 /* DoingTableViewController.swift */; };
 		9DFC0E3D1EA2FE7400FFEF97 /* DoneTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFC0E3C1EA2FE7400FFEF97 /* DoneTableViewController.swift */; };
 		9DFC0E411EA310FA00FFEF97 /* DoingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFC0E401EA310FA00FFEF97 /* DoingTableViewCell.swift */; };
-		FF3F5F451EBDFBE80073ACD9 /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3F5F441EBDFBE80073ACD9 /* TodoItem.swift */; };
+		FF3F5F4D1EBE0F300073ACD9 /* PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3F5F4C1EBE0F300073ACD9 /* PushNotification.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,7 +46,7 @@
 		9DFC0E3A1EA2FE6A00FFEF97 /* DoingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoingTableViewController.swift; sourceTree = "<group>"; };
 		9DFC0E3C1EA2FE7400FFEF97 /* DoneTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneTableViewController.swift; sourceTree = "<group>"; };
 		9DFC0E401EA310FA00FFEF97 /* DoingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoingTableViewCell.swift; sourceTree = "<group>"; };
-		FF3F5F441EBDFBE80073ACD9 /* TodoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
+		FF3F5F4C1EBE0F300073ACD9 /* PushNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotification.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +98,6 @@
 				9DFC0E331EA26D0F00FFEF97 /* Supporting Files */,
 				9DFC0E231EA262B400FFEF97 /* Main.storyboard */,
 				9D60193D1EA6007100BA3649 /* MainTableViewCell.swift */,
-				FF3F5F441EBDFBE80073ACD9 /* TodoItem.swift */,
 				9DFC0E401EA310FA00FFEF97 /* DoingTableViewCell.swift */,
 				9D60193F1EA64CDE00BA3649 /* DoneTableViewCell.swift */,
 				9DFC0E3A1EA2FE6A00FFEF97 /* DoingTableViewController.swift */,
@@ -106,6 +105,7 @@
 				9D6019431EA7074500BA3649 /* MainTextView.swift */,
 				9DFC0E341EA26D7800FFEF97 /* MainViewController.swift */,
 				9DFC0E311EA26CFF00FFEF97 /* PageViewController.swift */,
+				FF3F5F4C1EBE0F300073ACD9 /* PushNotification.swift */,
 			);
 			path = Focus;
 			sourceTree = "<group>";
@@ -254,7 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF3F5F451EBDFBE80073ACD9 /* TodoItem.swift in Sources */,
+				FF3F5F4D1EBE0F300073ACD9 /* PushNotification.swift in Sources */,
 				9DFC0E351EA26D7800FFEF97 /* MainViewController.swift in Sources */,
 				9D60193E1EA6007100BA3649 /* MainTableViewCell.swift in Sources */,
 				9DFC0E3B1EA2FE6A00FFEF97 /* DoingTableViewController.swift in Sources */,
