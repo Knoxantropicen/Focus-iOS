@@ -9,7 +9,7 @@
 import UIKit
 
 class MainViewController: UIViewController, UITextViewDelegate {
-
+    
     @IBOutlet weak var typingArea: UITextView!
     
 //    var contentSize = CGSize()
@@ -20,7 +20,6 @@ class MainViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
 //        typingArea.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
         
         typingArea.delegate = self
@@ -59,6 +58,19 @@ class MainViewController: UIViewController, UITextViewDelegate {
         }
         view.endEditing(true)
     }
+    
+    @IBOutlet weak var mode: UIButton! {
+        didSet {
+            
+        }
+    }
+    
+    @IBAction func changeMode(_ sender: UIButton) {
+        (sender.currentTitle == "?") ? sender.setTitle("!", for: .normal) : sender.setTitle("?", for: .normal)
+        let doingTable = DoingTableViewController()
+        doingTable.changeMainMode(sender.currentTitle!)
+    }
+    
     
     @IBAction func createAffair(_ sender: UIButton) {
         if typingArea.text == textModel {

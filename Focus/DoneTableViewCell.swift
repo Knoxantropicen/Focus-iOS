@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DoneTableViewCell: UITableViewCell {
+class DoneTableViewCell: MGSwipeTableCell {
     
     @IBOutlet weak var affairDescription: UILabel!
     
@@ -28,5 +28,4 @@ class DoneTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }

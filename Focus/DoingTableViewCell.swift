@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DoingTableViewCell: UITableViewCell {
+class DoingTableViewCell: MGSwipeTableCell {
 
     @IBOutlet weak var affairDescription: UILabel!
     
@@ -27,6 +27,29 @@ class DoingTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    
+    
+    
+//    func swipeTableCell(_ cell: MGSwipeTableCell, tappedButtonAt index: Int, direction: MGSwipeDirection, fromExpansion: Bool) -> Bool {
+//        print(index)
+//        print(direction)
+//        print(fromExpansion)
+//        return true
+//    }
+
+    
+//    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
+//        return true
+//    }
+    
+    override func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        return true
+    }
+    
+    override func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
 
 }

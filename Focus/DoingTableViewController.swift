@@ -16,6 +16,11 @@ class DoingTableViewController: UITableViewController {
         DoingTableViewController.affairs.insert(affair, at: 0)
     }
     
+    func deleteAffair(deletingAffair index: Int) {
+        let doneTable = DoneTableViewController()
+        doneTable.addAffair(newAffair: DoingTableViewController.affairs.remove(at: index))
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
@@ -49,11 +54,25 @@ class DoingTableViewController: UITableViewController {
             }
             return mainCell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "DoingAffair", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DoingAffair", for: indexPath) as! MGSwipeTableCell
             let affair = DoingTableViewController.affairs[indexPath.row]
             if let affairCell = cell as? DoingTableViewCell {
                 affairCell.affair = affair
             }
+            cell.leftButtons = [MGSwipeButton(title: "", icon: UIImage(named: "check.png"), backgroundColor: .green, padding: 20, callback: {
+                (sender: MGSwipeTableCell!) -> Bool in
+                self.deleteAffair(deletingAffair: indexPath.row)
+                self.tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.bottom)
+                self.tableView.reloadData()
+                return true
+            })]
+            
+            cell.leftSwipeSettings.transition = .border
+            cell.leftExpansion.buttonIndex = 0
+            cell.leftExpansion.fillOnTrigger = true
+            cell.leftExpansion.animationDuration = 0.5
+//            cell.allowsMultipleSwipe = true;
+//            cell.allowsOppositeSwipe = false;
             return cell
         }
     }
@@ -65,6 +84,12 @@ class DoingTableViewController: UITableViewController {
         else {
             return 68
         }
+    }
+    
+    @IBOutlet weak var mainMode: UILabel!
+    
+    func changeMainMode(_ mainModeText:String) {
+        mainMode.text = mainModeText
     }
     
     
