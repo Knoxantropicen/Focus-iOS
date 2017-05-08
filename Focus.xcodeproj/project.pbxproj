@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D46B0761EBF2ACE00F6CC21 /* MGSwipeTableCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D46B0741EBF2ACE00F6CC21 /* MGSwipeTableCell.framework */; };
 		9D60193E1EA6007100BA3649 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D60193D1EA6007100BA3649 /* MainTableViewCell.swift */; };
 		9D6019401EA64CDE00BA3649 /* DoneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D60193F1EA64CDE00BA3649 /* DoneTableViewCell.swift */; };
 		9D6019441EA7074500BA3649 /* MainTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6019431EA7074500BA3649 /* MainTextView.swift */; };
@@ -23,6 +24,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		51198681C176C4FE100C309C /* Pods_Focus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Focus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FA4E63FEEB03583918AF5D1 /* Pods-Focus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Focus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Focus/Pods-Focus.debug.xcconfig"; sourceTree = "<group>"; };
+		996CFBE60A513FCE472C12DC /* Pods-Focus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Focus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Focus/Pods-Focus.release.xcconfig"; sourceTree = "<group>"; };
+		9D2C8B831EBEF3D600F50B81 /* libMGSwipeTableCell.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMGSwipeTableCell.a; path = "../../../../Library/Developer/Xcode/DerivedData/Focus-ccrkxqcbzxgetlbqgbgnsgbqedkk/Build/Products/Debug-iphonesimulator/MGSwipeTableCell/libMGSwipeTableCell.a"; sourceTree = "<group>"; };
+		9D46B06D1EBF198700F6CC21 /* DRCellSlideGestureRecognizer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DRCellSlideGestureRecognizer.framework; path = "Pods/../build/Debug-iphoneos/DRCellSlideGestureRecognizer/DRCellSlideGestureRecognizer.framework"; sourceTree = "<group>"; };
+		9D46B06F1EBF199E00F6CC21 /* MGSwipeTableCell.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MGSwipeTableCell.framework; path = "Pods/../build/Debug-iphoneos/MGSwipeTableCell/MGSwipeTableCell.framework"; sourceTree = "<group>"; };
+		9D46B0731EBF2ACE00F6CC21 /* DRCellSlideGestureRecognizer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DRCellSlideGestureRecognizer.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Focus-ccrkxqcbzxgetlbqgbgnsgbqedkk/Build/Products/Debug-iphoneos/DRCellSlideGestureRecognizer/DRCellSlideGestureRecognizer.framework"; sourceTree = "<group>"; };
+		9D46B0741EBF2ACE00F6CC21 /* MGSwipeTableCell.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MGSwipeTableCell.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Focus-ccrkxqcbzxgetlbqgbgnsgbqedkk/Build/Products/Debug-iphoneos/MGSwipeTableCell/MGSwipeTableCell.framework"; sourceTree = "<group>"; };
 		9D60193D1EA6007100BA3649 /* MainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		9D60193F1EA64CDE00BA3649 /* DoneTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneTableViewCell.swift; sourceTree = "<group>"; };
 		9D6019431EA7074500BA3649 /* MainTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTextView.swift; sourceTree = "<group>"; };
@@ -45,17 +54,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D46B0761EBF2ACE00F6CC21 /* MGSwipeTableCell.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		23139CAAB2573D7C60C6BD33 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9D46B0731EBF2ACE00F6CC21 /* DRCellSlideGestureRecognizer.framework */,
+				9D46B0741EBF2ACE00F6CC21 /* MGSwipeTableCell.framework */,
+				9D46B06F1EBF199E00F6CC21 /* MGSwipeTableCell.framework */,
+				9D46B06D1EBF198700F6CC21 /* DRCellSlideGestureRecognizer.framework */,
+				9D2C8B831EBEF3D600F50B81 /* libMGSwipeTableCell.a */,
+				51198681C176C4FE100C309C /* Pods_Focus.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9DFC0E131EA262B400FFEF97 = {
 			isa = PBXGroup;
 			children = (
 				9DFC0E1E1EA262B400FFEF97 /* Focus */,
 				9DFC0E1D1EA262B400FFEF97 /* Products */,
+				DD9B324DF3B555AB9329401C /* Pods */,
+				23139CAAB2573D7C60C6BD33 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +121,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		DD9B324DF3B555AB9329401C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6FA4E63FEEB03583918AF5D1 /* Pods-Focus.debug.xcconfig */,
+				996CFBE60A513FCE472C12DC /* Pods-Focus.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +137,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9DFC0E2E1EA262B400FFEF97 /* Build configuration list for PBXNativeTarget "Focus" */;
 			buildPhases = (
+				7A26A168BE828CA0B8DACEE3 /* [CP] Check Pods Manifest.lock */,
 				9DFC0E181EA262B400FFEF97 /* Sources */,
 				9DFC0E191EA262B400FFEF97 /* Frameworks */,
 				9DFC0E1A1EA262B400FFEF97 /* Resources */,
+				B6B5E5AD22D3D82494216FB4 /* [CP] Embed Pods Frameworks */,
+				5ECF1DADF90388BAE63E7787 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -163,6 +200,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5ECF1DADF90388BAE63E7787 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Focus/Pods-Focus-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7A26A168BE828CA0B8DACEE3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B6B5E5AD22D3D82494216FB4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Focus/Pods-Focus-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9DFC0E181EA262B400FFEF97 /* Sources */ = {
@@ -299,29 +384,51 @@
 		};
 		9DFC0E2F1EA262B400FFEF97 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FA4E63FEEB03583918AF5D1 /* Pods-Focus.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = GJDK79YZS6;
+
+				DEVELOPMENT_TEAM = J2NBXB5LBL;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/DRCellSlideGestureRecognizer",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/MGSwipeTableCell",
+				);
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/DRCellSlideGestureRecognizer",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/MGSwipeTableCell",
+				);
 				INFOPLIST_FILE = Focus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pika7ma.Focus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/KnoxTYS/Desktop/Programming/swift/Focus/Pods/MGSwipeTableCell/MGSwipeTableCell/MGSwipeTableCell.h;
 				SWIFT_VERSION = 3.0;
+				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};
 			name = Debug;
 		};
 		9DFC0E301EA262B400FFEF97 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 996CFBE60A513FCE472C12DC /* Pods-Focus.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = GJDK79YZS6;
+				DEVELOPMENT_TEAM = J2NBXB5LBL;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/DRCellSlideGestureRecognizer",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/MGSwipeTableCell",
+				);
 				INFOPLIST_FILE = Focus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pika7ma.Focus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/KnoxTYS/Desktop/Programming/swift/Focus/Pods/MGSwipeTableCell/MGSwipeTableCell/MGSwipeTableCell.h;
 				SWIFT_VERSION = 3.0;
+				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};
 			name = Release;
 		};

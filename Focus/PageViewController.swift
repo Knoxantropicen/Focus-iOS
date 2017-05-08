@@ -26,6 +26,10 @@ class PageViewController: UIPageViewController, UIScrollViewDelegate {
         let firstViewController = orderedViewControllers[1]
         setViewControllers([firstViewController],
                            direction: .forward, animated: true, completion: nil)
+        
+        if let myView = view?.subviews.first as? UIScrollView {
+            myView.canCancelContentTouches = false
+        }
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

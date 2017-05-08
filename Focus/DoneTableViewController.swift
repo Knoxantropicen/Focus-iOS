@@ -16,6 +16,10 @@ class DoneTableViewController: UITableViewController {
         DoneTableViewController.affairs.insert(affair, at: 0)
     }
     
+    func deleteAffair(deletingAffair index: Int) {
+        DoneTableViewController.affairs.remove(at: index)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
@@ -49,28 +53,26 @@ class DoneTableViewController: UITableViewController {
             }
             return mainCell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "DoneAffair", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DoneAffair", for: indexPath) as! MGSwipeTableCell
             let affair = DoneTableViewController.affairs[indexPath.row]
             if let affairCell = cell as? DoneTableViewCell {
                 affairCell.affair = affair
             }
+            cell.rightButtons = [MGSwipeButton(title: "", icon: UIImage(named: "delete.png"), backgroundColor: .red, padding: 20, callback: {
+                (sender: MGSwipeTableCell!) -> Bool in
+                self.deleteAffair(deletingAffair: indexPath.row)
+                self.tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.bottom)
+                self.tableView.reloadData()
+                return true
+            }), MGSwipeButton(title: "", icon: UIImage(named: "more.png"), backgroundColor: .lightGray, padding: 20)]
+            cell.rightSwipeSettings.transition = .border
+            cell.rightExpansion.threshold = 0.5
             return cell
         }
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
-    }
-    
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if indexPath.section == 0 {
-            return
-        }
-        if (editingStyle == UITableViewCellEditingStyle.delete) {
-            DoneTableViewController.affairs.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
-            // handle delete (by removing the data from your array and updating the tableview)
-        }
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
