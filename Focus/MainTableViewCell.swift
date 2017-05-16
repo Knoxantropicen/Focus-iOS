@@ -18,6 +18,17 @@ class MainTableViewCell: UITableViewCell {
         }
     }
     
+    
+    @IBOutlet weak var mainMode: UIButton!
+    
+    func changeState() {
+        if MainViewController.isQuestion {
+            mainMode.setTitle("?", for: .normal)
+        } else {
+            mainMode.setTitle("!", for: .normal)
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

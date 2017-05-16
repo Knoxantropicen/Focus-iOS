@@ -19,11 +19,13 @@ class DoingTableViewController: UITableViewController {
     func deleteAffair(deletingAffair index: Int) {
         let doneTable = DoneTableViewController()
         doneTable.addAffair(newAffair: DoingTableViewController.affairs.remove(at: index))
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -86,10 +88,10 @@ class DoingTableViewController: UITableViewController {
         }
     }
     
-    @IBOutlet weak var mainMode: UILabel!
-    
-    func changeMainMode(_ mainModeText:String) {
-        mainMode.text = mainModeText
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let mainCell = cell as? MainTableViewCell {
+            mainCell.changeState()
+        }
     }
     
     

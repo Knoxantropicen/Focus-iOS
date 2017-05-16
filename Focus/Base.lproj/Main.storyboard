@@ -28,7 +28,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ac6-pu-iiL">
-                                            <rect key="frame" x="18" y="30" width="305" height="73.5"/>
+                                            <rect key="frame" x="18" y="30" width="301" height="73.5"/>
                                             <attributedString key="attributedText">
                                                 <fragment content="Label">
                                                     <attributes>
@@ -48,31 +48,33 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5eg-Yq-h79">
-                                            <rect key="frame" x="331" y="39" width="26" height="55.5"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kTM-Z8-xOk">
+                                            <rect key="frame" x="329" y="41" width="30" height="43.5"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="26" id="KPA-xe-mWy"/>
+                                                <constraint firstAttribute="width" constant="30" id="4rX-7C-2xB"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-UltraLightItalic" family="Helvetica Neue" pointSize="24"/>
-                                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        </label>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-UltraLightItalic" family="Helvetica Neue" pointSize="28"/>
+                                            <state key="normal" title="?">
+                                                <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                        </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="5eg-Yq-h79" secondAttribute="trailing" constant="10" id="4Kd-nV-8Vd"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="kTM-Z8-xOk" secondAttribute="bottom" constant="20" id="83m-Vh-VLb"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="QiR-cw-ENK" secondAttribute="trailing" constant="15" id="8ge-xE-S5x"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="kTM-Z8-xOk" secondAttribute="trailing" constant="8" id="Bjc-rY-TTr"/>
                                         <constraint firstItem="QiR-cw-ENK" firstAttribute="leading" secondItem="ac6-pu-iiL" secondAttribute="leading" id="E76-Um-Zab"/>
                                         <constraint firstItem="ac6-pu-iiL" firstAttribute="top" secondItem="QiR-cw-ENK" secondAttribute="bottom" constant="1" id="EHc-UA-HTw"/>
-                                        <constraint firstItem="5eg-Yq-h79" firstAttribute="top" secondItem="QiR-cw-ENK" secondAttribute="bottom" constant="10" id="L6k-p5-oKi"/>
                                         <constraint firstItem="QiR-cw-ENK" firstAttribute="leading" secondItem="c1t-ga-WxI" secondAttribute="leadingMargin" constant="10" id="QcH-iQ-kBm"/>
                                         <constraint firstItem="QiR-cw-ENK" firstAttribute="top" secondItem="c1t-ga-WxI" secondAttribute="topMargin" id="UMJ-US-LZI"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="5eg-Yq-h79" secondAttribute="bottom" constant="10" id="aa0-EH-Q4z"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="ac6-pu-iiL" secondAttribute="bottom" constant="1" id="bIS-k5-PVe"/>
-                                        <constraint firstItem="5eg-Yq-h79" firstAttribute="leading" secondItem="ac6-pu-iiL" secondAttribute="trailing" constant="8" symbolic="YES" id="hjS-FR-wcs"/>
+                                        <constraint firstItem="kTM-Z8-xOk" firstAttribute="leading" secondItem="ac6-pu-iiL" secondAttribute="trailing" constant="10" id="dj4-aT-Ej7"/>
+                                        <constraint firstItem="kTM-Z8-xOk" firstAttribute="top" secondItem="c1t-ga-WxI" secondAttribute="topMargin" constant="33" id="tEG-3c-g4p"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="mainAffairDescription" destination="ac6-pu-iiL" id="cz8-0P-exu"/>
+                                    <outlet property="mainMode" destination="kTM-Z8-xOk" id="vFU-GE-pmf"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DoingAffair" rowHeight="68" id="8uf-er-vj5" customClass="DoingTableViewCell" customModule="Focus" customModuleProvider="target">

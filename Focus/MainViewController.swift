@@ -65,10 +65,19 @@ class MainViewController: UIViewController, UITextViewDelegate {
         }
     }
     
+    static var isQuestion = true
+    
     @IBAction func changeMode(_ sender: UIButton) {
-        (sender.currentTitle == "?") ? sender.setTitle("!", for: .normal) : sender.setTitle("?", for: .normal)
-        let doingTable = DoingTableViewController()
-        doingTable.changeMainMode(sender.currentTitle!)
+        if let mode = sender.currentTitle {
+//            (mode == "?") ? sender.setTitle("!", for: .normal) : sender.setTitle("?", for: .normal)
+            if mode == "?" {
+                sender.setTitle("!", for: .normal)
+                MainViewController.isQuestion = false
+            } else {
+                sender.setTitle("?", for: .normal)
+                MainViewController.isQuestion = true
+            }
+        }
     }
     
     
