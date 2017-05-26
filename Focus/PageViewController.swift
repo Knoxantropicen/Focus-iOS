@@ -11,6 +11,7 @@ import UIKit
 class PageViewController: UIPageViewController, UIScrollViewDelegate {
     
     static var currentPage: Int = 1
+    private var firstLaunch = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,42 @@ class PageViewController: UIPageViewController, UIScrollViewDelegate {
         
         if let myView = view?.subviews.first as? UIScrollView {
             myView.canCancelContentTouches = false
+        }
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.backgroundColor = .white
+        
+        if firstLaunch {
+            if let doingAffairArray = UserDefaults.standard.array(forKey: "DoingAffairArray") {
+                DoingTableViewController.affairs = doingAffairArray as! Array<String>
+            }
+            if let doingModeArray = UserDefaults.standard.array(forKey: "DoingModeArray") {
+                DoingTableViewController.modes = doingModeArray as! Array<String>
+            }
+            if let doneAffairArray = UserDefaults.standard.array(forKey: "DoneAffairArray") {
+                DoneTableViewController.affairs = doneAffairArray as! Array<String>
+            }
+            if let doneModeArray = UserDefaults.standard.array(forKey: "DoneModeArray") {
+                DoneTableViewController.modes = doneModeArray as! Array<String>
+            }
+            firstLaunch = false
+        }
+//        UserDefaults.standard.set(Array<String>(), forKey: "DoingAffairArray");
+//        UserDefaults.standard.set(Array<String>(), forKey: "DoingModeArray");
+//        UserDefaults.standard.set(Array<String>(), forKey: "DoneAffairArray");
+//        UserDefaults.standard.set(Array<String>(), forKey: "DoneModeArray");
+    }
+    
+    func get_uuid() -> String {
+        let userid = UserDefaults.standard.string(forKey: "knox")
+        if userid != nil {
+            return userid!
+        } else {
+            let uuid_ref = CFUUIDCreate(nil)
+            let uuid_string_ref = CFUUIDCreateString(nil , uuid_ref)
+            let uuid = uuid_string_ref! as String
+            UserDefaults.standard.set(uuid, forKey: "knox")
+            return uuid
         }
     }
     

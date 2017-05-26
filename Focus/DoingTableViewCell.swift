@@ -17,6 +17,8 @@ class DoingTableViewCell: MGSwipeTableCell {
             affairDescription?.text = affair
         }
     }
+    
+    @IBOutlet weak var settledMode: UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,21 +30,6 @@ class DoingTableViewCell: MGSwipeTableCell {
 
         // Configure the view for the selected state
     }
-    
-    
-    
-    
-//    func swipeTableCell(_ cell: MGSwipeTableCell, tappedButtonAt index: Int, direction: MGSwipeDirection, fromExpansion: Bool) -> Bool {
-//        print(index)
-//        print(direction)
-//        print(fromExpansion)
-//        return true
-//    }
-
-    
-//    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
-//        return true
-//    }
     
     override func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         return true

@@ -28,7 +28,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ac6-pu-iiL">
-                                            <rect key="frame" x="18" y="30" width="301" height="73.5"/>
+                                            <rect key="frame" x="18" y="30" width="51.5" height="73.5"/>
                                             <attributedString key="attributedText">
                                                 <fragment content="Label">
                                                     <attributes>
@@ -48,8 +48,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kTM-Z8-xOk">
-                                            <rect key="frame" x="329" y="41" width="30" height="43.5"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kTM-Z8-xOk" userLabel="Main Mode">
+                                            <rect key="frame" x="329" y="44.5" width="30" height="45"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="30" id="4rX-7C-2xB"/>
                                             </constraints>
@@ -60,16 +60,14 @@
                                         </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="kTM-Z8-xOk" secondAttribute="bottom" constant="20" id="83m-Vh-VLb"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="QiR-cw-ENK" secondAttribute="trailing" constant="15" id="8ge-xE-S5x"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="kTM-Z8-xOk" secondAttribute="trailing" constant="8" id="Bjc-rY-TTr"/>
                                         <constraint firstItem="QiR-cw-ENK" firstAttribute="leading" secondItem="ac6-pu-iiL" secondAttribute="leading" id="E76-Um-Zab"/>
                                         <constraint firstItem="ac6-pu-iiL" firstAttribute="top" secondItem="QiR-cw-ENK" secondAttribute="bottom" constant="1" id="EHc-UA-HTw"/>
                                         <constraint firstItem="QiR-cw-ENK" firstAttribute="leading" secondItem="c1t-ga-WxI" secondAttribute="leadingMargin" constant="10" id="QcH-iQ-kBm"/>
+                                        <constraint firstItem="kTM-Z8-xOk" firstAttribute="centerY" secondItem="ac6-pu-iiL" secondAttribute="centerY" id="RLN-lw-Ii9"/>
                                         <constraint firstItem="QiR-cw-ENK" firstAttribute="top" secondItem="c1t-ga-WxI" secondAttribute="topMargin" id="UMJ-US-LZI"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="ac6-pu-iiL" secondAttribute="bottom" constant="1" id="bIS-k5-PVe"/>
-                                        <constraint firstItem="kTM-Z8-xOk" firstAttribute="leading" secondItem="ac6-pu-iiL" secondAttribute="trailing" constant="10" id="dj4-aT-Ej7"/>
-                                        <constraint firstItem="kTM-Z8-xOk" firstAttribute="top" secondItem="c1t-ga-WxI" secondAttribute="topMargin" constant="33" id="tEG-3c-g4p"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -85,7 +83,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HOP-vu-zmP">
-                                            <rect key="frame" x="18" y="0.0" width="334" height="60"/>
+                                            <rect key="frame" x="18" y="22.5" width="334" height="23"/>
                                             <attributedString key="attributedText">
                                                 <fragment content="Label">
                                                     <attributes>
@@ -96,18 +94,28 @@
                                             </attributedString>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FTG-pE-aWX">
+                                            <rect key="frame" x="329" y="10.5" width="30" height="45"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="caY-NS-Kyg"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-UltraLightItalic" family="Helvetica Neue" pointSize="28"/>
+                                            <state key="normal" title="?">
+                                                <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                        </button>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="HOP-vu-zmP" firstAttribute="centerY" secondItem="uEk-PT-34z" secondAttribute="centerY" id="Bgp-w5-OXd"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="HOP-vu-zmP" secondAttribute="trailing" constant="15" id="IDL-UN-McP"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="HOP-vu-zmP" secondAttribute="leading" constant="-10" id="Rcf-6N-jXw"/>
-                                        <constraint firstItem="HOP-vu-zmP" firstAttribute="top" secondItem="uEk-PT-34z" secondAttribute="topMargin" constant="-8" id="rDZ-sB-rNI"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="FTG-pE-aWX" secondAttribute="trailing" constant="8" id="bfn-YG-4g0"/>
+                                        <constraint firstItem="FTG-pE-aWX" firstAttribute="centerY" secondItem="uEk-PT-34z" secondAttribute="centerY" id="ni4-nN-C1u"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="HOP-vu-zmP" secondAttribute="bottom" constant="8" id="Vy9-Eb-AFD"/>
-                                </constraints>
                                 <connections>
                                     <outlet property="affairDescription" destination="HOP-vu-zmP" id="TXR-Xy-dWL"/>
+                                    <outlet property="settledMode" destination="FTG-pE-aWX" id="UBp-i9-v0r"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -169,7 +177,7 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.29999999999999999" contentMode="scaleToFill" text="Type your sentence here..." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="U9L-89-KLC" customClass="MainTextView" customModule="Focus" customModuleProvider="target">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.29999999999999999" contentMode="scaleToFill" text="Start typing here..." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="U9L-89-KLC" customClass="MainTextView" customModule="Focus" customModuleProvider="target">
                                 <rect key="frame" x="36" y="90" width="273" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-UltraLightItalic" family="Helvetica Neue" pointSize="30"/>
@@ -225,7 +233,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="112.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hze-Di-PRM" userLabel="Msin Affair Description">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hze-Di-PRM" userLabel="Main Affair Description">
                                             <rect key="frame" x="18" y="30" width="334" height="75"/>
                                             <attributedString key="attributedText">
                                                 <fragment content="Label">
@@ -246,11 +254,23 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9mI-0s-VKH" userLabel="Main Mode2">
+                                            <rect key="frame" x="329" y="45" width="30" height="45"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="ULd-4U-2Ws"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-UltraLightItalic" family="Helvetica Neue" pointSize="28"/>
+                                            <state key="normal" title="?">
+                                                <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="hze-Di-PRM" firstAttribute="top" secondItem="meI-gP-be0" secondAttribute="bottom" constant="1" id="0au-7L-uKS"/>
                                         <constraint firstAttribute="topMargin" secondItem="meI-gP-be0" secondAttribute="top" id="1hK-th-Aud"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="9mI-0s-VKH" secondAttribute="trailing" constant="8" id="1wo-Zw-SRq"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="hze-Di-PRM" secondAttribute="bottom" constant="-0.5" id="4e7-cP-uMh"/>
+                                        <constraint firstItem="9mI-0s-VKH" firstAttribute="centerY" secondItem="hze-Di-PRM" secondAttribute="centerY" id="VlT-3f-bzb"/>
                                         <constraint firstItem="meI-gP-be0" firstAttribute="leading" secondItem="fTT-XA-til" secondAttribute="leadingMargin" constant="10" id="ZPc-Ok-noy"/>
                                         <constraint firstItem="hze-Di-PRM" firstAttribute="leading" secondItem="fTT-XA-til" secondAttribute="leadingMargin" constant="10" id="gll-NX-Eqw"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="hze-Di-PRM" secondAttribute="trailing" constant="15" id="iHO-Nm-DmX"/>
@@ -260,6 +280,7 @@
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="mainAffairDescription" destination="hze-Di-PRM" id="VwZ-oW-emf"/>
+                                    <outlet property="mainModeAno" destination="9mI-0s-VKH" id="sLQ-mb-1V7"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DoneAffair" rowHeight="68" id="HRJ-nD-bv6" customClass="DoneTableViewCell" customModule="Focus" customModuleProvider="target">
@@ -270,7 +291,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TIh-6v-ny9">
-                                            <rect key="frame" x="18" y="0.0" width="334" height="60"/>
+                                            <rect key="frame" x="18" y="22.5" width="334" height="23"/>
                                             <attributedString key="attributedText">
                                                 <fragment content="Label">
                                                     <attributes>
@@ -281,16 +302,28 @@
                                             </attributedString>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v7S-dI-C2y">
+                                            <rect key="frame" x="329" y="11.5" width="30" height="45"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="PlA-Yo-TiS"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-UltraLightItalic" family="Helvetica Neue" pointSize="28"/>
+                                            <state key="normal" title="?">
+                                                <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                        </button>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="TIh-6v-ny9" firstAttribute="centerY" secondItem="6rS-ct-V6F" secondAttribute="centerY" id="01X-GN-juR"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="TIh-6v-ny9" secondAttribute="trailing" constant="15" id="MoL-oC-bZu"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="TIh-6v-ny9" secondAttribute="bottom" constant="-0.5" id="cpf-Fd-fs9"/>
                                         <constraint firstItem="TIh-6v-ny9" firstAttribute="leading" secondItem="6rS-ct-V6F" secondAttribute="leadingMargin" constant="10" id="eQa-kF-Eun"/>
-                                        <constraint firstItem="TIh-6v-ny9" firstAttribute="top" secondItem="6rS-ct-V6F" secondAttribute="topMargin" constant="-8" id="v3d-gw-vDg"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="v7S-dI-C2y" secondAttribute="trailing" constant="8" id="enL-GK-AZv"/>
+                                        <constraint firstItem="v7S-dI-C2y" firstAttribute="centerY" secondItem="6rS-ct-V6F" secondAttribute="centerY" id="ngp-3f-vjy"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="affairDescription" destination="TIh-6v-ny9" id="hFM-gW-IDO"/>
+                                    <outlet property="settledMode" destination="v7S-dI-C2y" id="hza-MM-ika"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

@@ -10,24 +10,146 @@ import UIKit
 
 class DoneTableViewController: UITableViewController {
 
-    private static var affairs = Array<String>()
+    static var affairs = Array<String>()
+    static var modes = Array<String>()
     
-    func addAffair(newAffair affair: String) {
+    private let defaults = UserDefaults.standard
+    
+    func addAffair(newAffair affair: String, newMode mode: String) {
         DoneTableViewController.affairs.insert(affair, at: 0)
+        DoneTableViewController.modes.insert(mode, at: 0)
+        defaults.set(DoneTableViewController.affairs, forKey: "DoneAffairArray");
+        defaults.set(DoneTableViewController.modes, forKey: "DoneModeArray");
     }
     
     func deleteAffair(deletingAffair index: Int) {
         DoneTableViewController.affairs.remove(at: index)
+        DoneTableViewController.modes.remove(at: index)
+        defaults.set(DoneTableViewController.affairs, forKey: "DoneAffairArray");
+        defaults.set(DoneTableViewController.modes, forKey: "DoneModeArray");
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
+        let longpress = UILongPressGestureRecognizer(target: self, action: #selector(DoingTableViewController.longPressGestureRecognized(_:)))
+        tableView.addGestureRecognizer(longpress)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tableView.reloadData()
+    }
+    
+    func longPressGestureRecognized(_ gestureRecognizer: UIGestureRecognizer) {
+        let longPress = gestureRecognizer as! UILongPressGestureRecognizer
+        let state = longPress.state
+        let locationInView = longPress.location(in: tableView)
+        let indexPath = tableView.indexPathForRow(at: locationInView)
+        
+        struct My {
+            static var cellSnapshot : UIView? = nil
+            static var cellIsAnimating : Bool = false
+            static var cellNeedToShow : Bool = false
+        }
+        struct Path {
+            static var initialIndexPath : IndexPath? = nil
+        }
+        
+        switch state {
+        case UIGestureRecognizerState.began:
+            if indexPath != nil && indexPath?.section != 0{
+                Path.initialIndexPath = indexPath
+                let cell = tableView.cellForRow(at: indexPath!) as UITableViewCell!
+                My.cellSnapshot  = snapshotOfCell(cell!)
+                var center = cell?.center
+                My.cellSnapshot!.center = center!
+                My.cellSnapshot!.alpha = 0.0
+                tableView.addSubview(My.cellSnapshot!)
+                
+                UIView.animate(withDuration: 0.25, animations: { () -> Void in
+                    center?.y = locationInView.y
+                    My.cellIsAnimating = true
+                    My.cellSnapshot!.center = center!
+                    My.cellSnapshot!.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
+                    My.cellSnapshot!.alpha = 0.98
+                    cell?.alpha = 0.0
+                }, completion: { (finished) -> Void in
+                    if finished {
+                        My.cellIsAnimating = false
+                        if My.cellNeedToShow {
+                            My.cellNeedToShow = false
+                            UIView.animate(withDuration: 0.25, animations: { () -> Void in
+                                cell?.alpha = 1
+                            })
+                        } else {
+                            cell?.isHidden = true
+                        }
+                    }
+                })
+            }
+            
+        case UIGestureRecognizerState.changed:
+            if My.cellSnapshot != nil {
+                var center = My.cellSnapshot!.center
+                center.y = locationInView.y
+                if (center.y < tableView.rect(forSection: 0).height) {
+                    break
+                }
+                My.cellSnapshot!.center = center
+                
+                if ((indexPath != nil) && (indexPath != Path.initialIndexPath)) {
+                    DoneTableViewController.affairs.insert(DoneTableViewController.affairs.remove(at: Path.initialIndexPath!.row), at: indexPath!.row)
+                    DoneTableViewController.modes.insert(DoneTableViewController.modes.remove(at: Path.initialIndexPath!.row), at: indexPath!.row)
+                    tableView.moveRow(at: Path.initialIndexPath!, to: indexPath!)
+                    Path.initialIndexPath = indexPath
+                }
+            }
+        default:
+            if Path.initialIndexPath != nil {
+                let cell = tableView.cellForRow(at: Path.initialIndexPath!) as UITableViewCell!
+                if My.cellIsAnimating {
+                    My.cellNeedToShow = true
+                } else {
+                    cell?.isHidden = false
+                    cell?.alpha = 0.0
+                }
+                
+                UIView.animate(withDuration: 0.25, animations: { () -> Void in
+                    My.cellSnapshot!.center = (cell?.center)!
+                    My.cellSnapshot!.transform = CGAffineTransform.identity
+                    My.cellSnapshot!.alpha = 0.0
+                    cell?.alpha = 1.0
+                    
+                }, completion: { (finished) -> Void in
+                    if finished {
+                        Path.initialIndexPath = nil
+                        My.cellSnapshot!.removeFromSuperview()
+                        My.cellSnapshot = nil
+                    }
+                })
+            }
+        }
+    }
+    
+    
+    func snapshotOfCell(_ inputView: UIView) -> UIView {
+        UIGraphicsBeginImageContextWithOptions(inputView.bounds.size, false, 0.0)
+        inputView.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        let cellSnapshot : UIView = UIImageView(image: image)
+        cellSnapshot.layer.masksToBounds = false
+        cellSnapshot.layer.cornerRadius = 0.0
+        cellSnapshot.layer.shadowOffset = CGSize(width: -5.0, height: 0.0)
+        cellSnapshot.layer.shadowRadius = 5.0
+        cellSnapshot.layer.shadowOpacity = 0.4
+        return cellSnapshot
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
     }
     
     // MARK: - Table view data source
@@ -55,8 +177,10 @@ class DoneTableViewController: UITableViewController {
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "DoneAffair", for: indexPath) as! MGSwipeTableCell
             let affair = DoneTableViewController.affairs[indexPath.row]
+            let mode = DoneTableViewController.modes[indexPath.row]
             if let affairCell = cell as? DoneTableViewCell {
                 affairCell.affair = affair
+                affairCell.settledMode.setTitle(mode, for: .normal)
             }
             cell.rightButtons = [MGSwipeButton(title: "", icon: UIImage(named: "delete.png"), backgroundColor: .red, padding: 20, callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
@@ -77,10 +201,16 @@ class DoneTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return 90
+            return 108
         }
         else {
             return 68
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let mainCell = cell as? MainTableViewCell {
+            mainCell.changeStateAno()
         }
     }
     

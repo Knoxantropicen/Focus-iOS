@@ -12,28 +12,39 @@ class MainViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var typingArea: UITextView!
     
-//    var contentSize = CGSize()
+    private let defaults = UserDefaults.standard
     
     static var typingText: String = ""
     
-    private let textModel = "Type your sentence here..."
+    private let textModel = "Start typing here..."
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        typingArea.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
-        
         typingArea.delegate = self
-//        typingArea.becomeFirstResponder()
         
         let tapGesture = UITapGestureRecognizer(target: self, action:#selector(MainViewController.hideKeyboard))
         view.addGestureRecognizer(tapGesture)
-        // Do any additional setup after loading the view.
+        
+        if let mainAffairString = UserDefaults.standard.string(forKey: "mainAffairString") {
+            MainViewController.typingText = mainAffairString
+            typingArea.text = mainAffairString
+            if (mainAffairString == textModel) {
+                typingArea.alpha = 0.3
+            } else {
+                typingArea.alpha = 1
+            }
+        }
+        
+        if MainViewController.isQuestion == UserDefaults.standard.bool(forKey: "mainModeRevBool") {
+            MainViewController.isQuestion = !MainViewController.isQuestion
+            changeMode(mode)
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if typingArea.text == textModel {
-            MainViewController.typingText = "(Swipe back and add something...)"
+            MainViewController.typingText = "(Add something...)"
         } else {
             MainViewController.typingText = typingArea.text
         }
@@ -56,20 +67,16 @@ class MainViewController: UIViewController, UITextViewDelegate {
             typingArea.text = textModel
             typingArea.alpha = 0.3
         }
+        defaults.set(typingArea.text, forKey: "mainAffairString")
         view.endEditing(true)
     }
     
-    @IBOutlet weak var mode: UIButton! {
-        didSet {
-            
-        }
-    }
+    @IBOutlet weak var mode: UIButton!
     
     static var isQuestion = true
     
     @IBAction func changeMode(_ sender: UIButton) {
         if let mode = sender.currentTitle {
-//            (mode == "?") ? sender.setTitle("!", for: .normal) : sender.setTitle("?", for: .normal)
             if mode == "?" {
                 sender.setTitle("!", for: .normal)
                 MainViewController.isQuestion = false
@@ -77,6 +84,7 @@ class MainViewController: UIViewController, UITextViewDelegate {
                 sender.setTitle("?", for: .normal)
                 MainViewController.isQuestion = true
             }
+            defaults.set(!MainViewController.isQuestion, forKey: "mainModeRevBool")
         }
     }
     
@@ -86,7 +94,7 @@ class MainViewController: UIViewController, UITextViewDelegate {
             return
         }
         let createAffair = DoingTableViewController()
-        createAffair.addAffair(newAffair: typingArea.text)
+        createAffair.addAffair(newAffair: typingArea.text, newMode: mode.currentTitle!)
         typingArea.text = ""
         hideKeyboard()
     }
@@ -96,7 +104,7 @@ class MainViewController: UIViewController, UITextViewDelegate {
             return
         }
         let finishAffair = DoneTableViewController()
-        finishAffair.addAffair(newAffair: typingArea.text)
+        finishAffair.addAffair(newAffair: typingArea.text, newMode: mode.currentTitle!)
         typingArea.text = ""
         hideKeyboard()
     }
