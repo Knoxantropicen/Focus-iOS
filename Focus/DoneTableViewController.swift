@@ -12,21 +12,28 @@ class DoneTableViewController: UITableViewController {
 
     static var affairs = Array<String>()
     static var modes = Array<String>()
+    static var descriptions = Array<String>()
     
     private let defaults = UserDefaults.standard
+    
+    func setDefaults() {
+        defaults.set(DoneTableViewController.affairs, forKey: "DoneAffairArray");
+        defaults.set(DoneTableViewController.modes, forKey: "DoneModeArray");
+        defaults.set(DoneTableViewController.descriptions, forKey: "DescriptionArray")
+    }
     
     func addAffair(newAffair affair: String, newMode mode: String) {
         DoneTableViewController.affairs.insert(affair, at: 0)
         DoneTableViewController.modes.insert(mode, at: 0)
-        defaults.set(DoneTableViewController.affairs, forKey: "DoneAffairArray");
-        defaults.set(DoneTableViewController.modes, forKey: "DoneModeArray");
+        DoneTableViewController.descriptions.insert("Click 'Edit' to add description...", at: 0)
+        setDefaults()
     }
     
     func deleteAffair(deletingAffair index: Int) {
         DoneTableViewController.affairs.remove(at: index)
         DoneTableViewController.modes.remove(at: index)
-        defaults.set(DoneTableViewController.affairs, forKey: "DoneAffairArray");
-        defaults.set(DoneTableViewController.modes, forKey: "DoneModeArray");
+        DoneTableViewController.descriptions.remove(at: index)
+        setDefaults()
     }
     
     override func viewDidLoad() {
@@ -101,6 +108,9 @@ class DoneTableViewController: UITableViewController {
                 if ((indexPath != nil) && (indexPath != Path.initialIndexPath)) {
                     DoneTableViewController.affairs.insert(DoneTableViewController.affairs.remove(at: Path.initialIndexPath!.row), at: indexPath!.row)
                     DoneTableViewController.modes.insert(DoneTableViewController.modes.remove(at: Path.initialIndexPath!.row), at: indexPath!.row)
+                    DoneTableViewController.descriptions.insert(DoneTableViewController.descriptions.remove(at: Path.initialIndexPath!.row), at: indexPath!.row)
+                    self.tableView.reloadData()
+                    setDefaults()
                     tableView.moveRow(at: Path.initialIndexPath!, to: indexPath!)
                     Path.initialIndexPath = indexPath
                 }
@@ -132,7 +142,6 @@ class DoneTableViewController: UITableViewController {
         }
     }
     
-    
     func snapshotOfCell(_ inputView: UIView) -> UIView {
         UIGraphicsBeginImageContextWithOptions(inputView.bounds.size, false, 0.0)
         inputView.layer.render(in: UIGraphicsGetCurrentContext()!)
@@ -146,6 +155,15 @@ class DoneTableViewController: UITableViewController {
         cellSnapshot.layer.shadowRadius = 5.0
         cellSnapshot.layer.shadowOpacity = 0.4
         return cellSnapshot
+    }
+    
+    func showPopUp(rowNum: Int) {
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PopUpViewController") as! PopUpViewController
+        popOverVC.rowNum = rowNum
+        self.addChildViewController(popOverVC)
+        popOverVC.view.frame = self.view.frame
+        self.view.addSubview(popOverVC.view)
+        popOverVC.didMove(toParentViewController: self)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -188,7 +206,11 @@ class DoneTableViewController: UITableViewController {
                 self.tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.bottom)
                 self.tableView.reloadData()
                 return true
-            }), MGSwipeButton(title: "", icon: UIImage(named: "more.png"), backgroundColor: .lightGray, padding: 20)]
+            }), MGSwipeButton(title: "", icon: UIImage(named: "more.png"), backgroundColor: .lightGray, padding: 20, callback: {
+                (sender: MGSwipeTableCell!) -> Bool in
+                self.showPopUp(rowNum: indexPath.row)
+                return true
+            })]
             cell.rightSwipeSettings.transition = .border
             cell.rightExpansion.threshold = 0.5
             return cell
@@ -213,26 +235,4 @@ class DoneTableViewController: UITableViewController {
             mainCell.changeStateAno()
         }
     }
-    
-//        override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-//            if indexPath.section == 0 {
-//                return
-//            }
-//            if editingStyle == .delete {
-//                DoneTableViewController.affairs.remove(at: indexPath.row)
-//                tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
-//            }
-//        }
-//    
-//        override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-//            if indexPath.section == 0 {
-//                return nil
-//            }
-//            let deleteRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.destructive, title: "Delete", handler: { (action: UITableViewRowAction, index: IndexPath) in
-//                DoneTableViewController.affairs.remove(at: indexPath.row)
-//                self.tableView.deleteRows(at: [indexPath], with: .automatic)
-//            })
-//            let actions = [deleteRowAction]
-//            return actions
-//        }
 }

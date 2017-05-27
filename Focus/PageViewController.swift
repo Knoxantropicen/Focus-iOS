@@ -8,10 +8,13 @@
 
 import UIKit
 
-class PageViewController: UIPageViewController, UIScrollViewDelegate {
+class PageViewController: UIPageViewController, UIScrollViewDelegate, UIGestureRecognizerDelegate{
     
     static var currentPage: Int = 1
+    
     private var firstLaunch = true
+    
+//    static var popingUp = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +51,9 @@ class PageViewController: UIPageViewController, UIScrollViewDelegate {
             if let doneModeArray = UserDefaults.standard.array(forKey: "DoneModeArray") {
                 DoneTableViewController.modes = doneModeArray as! Array<String>
             }
+            if let descriptionArray = UserDefaults.standard.array(forKey: "DescriptionArray") {
+                DoneTableViewController.descriptions = descriptionArray as! Array<String>
+            }
             firstLaunch = false
         }
 //        UserDefaults.standard.set(Array<String>(), forKey: "DoingAffairArray");
@@ -56,33 +62,42 @@ class PageViewController: UIPageViewController, UIScrollViewDelegate {
 //        UserDefaults.standard.set(Array<String>(), forKey: "DoneModeArray");
     }
     
-    func get_uuid() -> String {
-        let userid = UserDefaults.standard.string(forKey: "knox")
-        if userid != nil {
-            return userid!
-        } else {
-            let uuid_ref = CFUUIDCreate(nil)
-            let uuid_string_ref = CFUUIDCreateString(nil , uuid_ref)
-            let uuid = uuid_string_ref! as String
-            UserDefaults.standard.set(uuid, forKey: "knox")
-            return uuid
-        }
+//    func get_uuid() -> String {
+//        let userid = UserDefaults.standard.string(forKey: "knox")
+//        if userid != nil {
+//            return userid!
+//        } else {
+//            let uuid_ref = CFUUIDCreate(nil)
+//            let uuid_string_ref = CFUUIDCreateString(nil , uuid_ref)
+//            let uuid = uuid_string_ref! as String
+//            UserDefaults.standard.set(uuid, forKey: "knox")
+//            return uuid
+//        }
+//    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
     
+//    func changeScrollState() {
+//        print(PageViewController.popingUp)
+//        if let scrollView = self.view as? UIScrollView {
+//            if PageViewController.popingUp {
+//                scrollView.isScrollEnabled = false
+//            } else {
+//                scrollView.isScrollEnabled = true
+//            }
+//        }
+//    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if PageViewController.currentPage == 0 && scrollView.contentOffset.x < scrollView.bounds.size.width {
+        if (PageViewController.currentPage == 0 && scrollView.contentOffset.x < scrollView.bounds.size.width) || (PageViewController.currentPage == 2 && scrollView.contentOffset.x > scrollView.bounds.size.width) {
             scrollView.contentOffset = CGPoint(x: scrollView.bounds.size.width, y: 0)
         }
-        else if PageViewController.currentPage == 2 && scrollView.contentOffset.x > scrollView.bounds.size.width {
-            scrollView.contentOffset = CGPoint(x: scrollView.bounds.size.width, y: 0)
-        }
-        
     }
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        if PageViewController.currentPage == 0 && scrollView.contentOffset.x < scrollView.bounds.size.width {
-            scrollView.contentOffset = CGPoint(x: scrollView.bounds.size.width, y: 0)
-        } else if PageViewController.currentPage == 2 && scrollView.contentOffset.x > scrollView.bounds.size.width {
+        if (PageViewController.currentPage == 0 && scrollView.contentOffset.x < scrollView.bounds.size.width) || (PageViewController.currentPage == 2 && scrollView.contentOffset.x > scrollView.bounds.size.width) {
             scrollView.contentOffset = CGPoint(x: scrollView.bounds.size.width, y: 0)
         }
     }
@@ -98,6 +113,8 @@ class PageViewController: UIPageViewController, UIScrollViewDelegate {
         return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"\(page)ViewController")
     }
 }
+
+
 
 extension PageViewController: UIPageViewControllerDataSource {
     
@@ -149,11 +166,7 @@ extension PageViewController: UIPageViewControllerDataSource {
         
         let nextIndex = viewControllerIndex + 1
         let orderedViewControllersCount = orderedViewControllers.count
-        
-        guard orderedViewControllersCount != nextIndex else {
-            return nil
-        }
-        
+
         guard orderedViewControllersCount > nextIndex else {
             return nil
         }

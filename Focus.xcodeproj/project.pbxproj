@@ -11,6 +11,7 @@
 		9D60193E1EA6007100BA3649 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D60193D1EA6007100BA3649 /* MainTableViewCell.swift */; };
 		9D6019401EA64CDE00BA3649 /* DoneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D60193F1EA64CDE00BA3649 /* DoneTableViewCell.swift */; };
 		9D6019441EA7074500BA3649 /* MainTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6019431EA7074500BA3649 /* MainTextView.swift */; };
+		9DD86AB81ED908C9002A4BC5 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD86AB71ED908C9002A4BC5 /* PopUpViewController.swift */; };
 		9DFC0E201EA262B400FFEF97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFC0E1F1EA262B400FFEF97 /* AppDelegate.swift */; };
 		9DFC0E251EA262B400FFEF97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DFC0E231EA262B400FFEF97 /* Main.storyboard */; };
 		9DFC0E271EA262B400FFEF97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DFC0E261EA262B400FFEF97 /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 		9D60193D1EA6007100BA3649 /* MainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		9D60193F1EA64CDE00BA3649 /* DoneTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneTableViewCell.swift; sourceTree = "<group>"; };
 		9D6019431EA7074500BA3649 /* MainTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTextView.swift; sourceTree = "<group>"; };
+		9DD86AB71ED908C9002A4BC5 /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		9DFC0E1C1EA262B400FFEF97 /* Focus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Focus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DFC0E1F1EA262B400FFEF97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DFC0E241EA262B400FFEF97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				9D60193F1EA64CDE00BA3649 /* DoneTableViewCell.swift */,
 				9DFC0E3A1EA2FE6A00FFEF97 /* DoingTableViewController.swift */,
 				9DFC0E3C1EA2FE7400FFEF97 /* DoneTableViewController.swift */,
+				9DD86AB71ED908C9002A4BC5 /* PopUpViewController.swift */,
 				9D6019431EA7074500BA3649 /* MainTextView.swift */,
 				9DFC0E341EA26D7800FFEF97 /* MainViewController.swift */,
 				9DFC0E311EA26CFF00FFEF97 /* PageViewController.swift */,
@@ -256,6 +259,7 @@
 				9DFC0E3B1EA2FE6A00FFEF97 /* DoingTableViewController.swift in Sources */,
 				9D6019401EA64CDE00BA3649 /* DoneTableViewCell.swift in Sources */,
 				9DFC0E321EA26CFF00FFEF97 /* PageViewController.swift in Sources */,
+				9DD86AB81ED908C9002A4BC5 /* PopUpViewController.swift in Sources */,
 				9DFC0E201EA262B400FFEF97 /* AppDelegate.swift in Sources */,
 				9DFC0E3D1EA2FE7400FFEF97 /* DoneTableViewController.swift in Sources */,
 				9D6019441EA7074500BA3649 /* MainTextView.swift in Sources */,
