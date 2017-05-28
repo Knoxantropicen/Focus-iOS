@@ -34,6 +34,7 @@ class DoingTableViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         let longpress = UILongPressGestureRecognizer(target: self, action: #selector(DoingTableViewController.longPressGestureRecognized(_:)))
         tableView.addGestureRecognizer(longpress)
+        tableView.alwaysBounceVertical = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -182,7 +183,7 @@ class DoingTableViewController: UITableViewController {
                 affairCell.affair = affair
                 affairCell.settledMode.setTitle(mode, for: .normal)
             }
-            cell.leftButtons = [MGSwipeButton(title: "", icon: UIImage(named: "check.png"), backgroundColor: .green, padding: 20, callback: {
+            cell.leftButtons = [MGSwipeButton(title: "", icon: UIImage(named: "check.png"), backgroundColor: UIColor.green.withAlphaComponent(0.7), padding: 20, callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
                 self.deleteAffair(deletingAffair: indexPath.row)
                 self.tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.bottom)

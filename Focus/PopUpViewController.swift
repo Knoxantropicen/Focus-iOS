@@ -34,9 +34,11 @@ class PopUpViewController: UIViewController, UITextViewDelegate, UIScrollViewDel
             self.view.alpha = 1.0
             self.view.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
         });
-//        PageViewController.popingUp = true
+        
 //        let pageView = PageViewController()
-//        pageView.changeScrollState()
+//        for gestureRecognizer in pageView.gestureRecognizers {
+//            gestureRecognizer.isEnabled = false
+//        }
     }
     
     func hideKeyboard() {
@@ -78,8 +80,9 @@ class PopUpViewController: UIViewController, UITextViewDelegate, UIScrollViewDel
             }
             self.descriptionText.backgroundColor = UIColor(colorLiteralRed: 245/255, green: 245/255, blue: 245/255, alpha: 1)
         });
-//        PageViewController.popingUp = false
-//        let pageView = PageViewController()
-//        pageView.changeScrollState()
+        let pageView = PageViewController()
+        for gestureRecognizer in pageView.gestureRecognizers {
+            gestureRecognizer.isEnabled = true
+        }
     }
 }

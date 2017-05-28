@@ -13,8 +13,6 @@ class PageViewController: UIPageViewController, UIScrollViewDelegate, UIGestureR
     static var currentPage: Int = 1
     
     private var firstLaunch = true
-    
-//    static var popingUp = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,17 +77,6 @@ class PageViewController: UIPageViewController, UIScrollViewDelegate, UIGestureR
         return true
     }
     
-//    func changeScrollState() {
-//        print(PageViewController.popingUp)
-//        if let scrollView = self.view as? UIScrollView {
-//            if PageViewController.popingUp {
-//                scrollView.isScrollEnabled = false
-//            } else {
-//                scrollView.isScrollEnabled = true
-//            }
-//        }
-//    }
-    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if (PageViewController.currentPage == 0 && scrollView.contentOffset.x < scrollView.bounds.size.width) || (PageViewController.currentPage == 2 && scrollView.contentOffset.x > scrollView.bounds.size.width) {
             scrollView.contentOffset = CGPoint(x: scrollView.bounds.size.width, y: 0)
@@ -113,8 +100,6 @@ class PageViewController: UIPageViewController, UIScrollViewDelegate, UIGestureR
         return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"\(page)ViewController")
     }
 }
-
-
 
 extension PageViewController: UIPageViewControllerDataSource {
     
