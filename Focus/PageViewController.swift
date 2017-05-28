@@ -25,6 +25,11 @@ class PageViewController: UIPageViewController, UIScrollViewDelegate, UIGestureR
             }
         }
         
+//        if let scrollView = orderedViewControllers[1].view as? UIScrollView {
+//            print("succeed")
+//            scrollView.isUserInteractionEnabled = false
+//        }
+        
         let firstViewController = orderedViewControllers[1]
         setViewControllers([firstViewController],
                            direction: .forward, animated: true, completion: nil)
@@ -110,6 +115,8 @@ extension PageViewController: UIPageViewControllerDataSource {
         }
         
         PageViewController.currentPage -= 1
+        
+        print(PageViewController.currentPage)
         
         if PageViewController.currentPage != viewControllerIndex {
             PageViewController.currentPage = viewControllerIndex

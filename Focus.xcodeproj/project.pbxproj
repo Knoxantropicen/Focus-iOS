@@ -12,9 +12,9 @@
 		9D6019401EA64CDE00BA3649 /* DoneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D60193F1EA64CDE00BA3649 /* DoneTableViewCell.swift */; };
 		9D6019441EA7074500BA3649 /* MainTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6019431EA7074500BA3649 /* MainTextView.swift */; };
 		9DD86AB81ED908C9002A4BC5 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD86AB71ED908C9002A4BC5 /* PopUpViewController.swift */; };
+		9DD86ABA1EDB2947002A4BC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DD86AB91EDB2947002A4BC5 /* Assets.xcassets */; };
 		9DFC0E201EA262B400FFEF97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFC0E1F1EA262B400FFEF97 /* AppDelegate.swift */; };
 		9DFC0E251EA262B400FFEF97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DFC0E231EA262B400FFEF97 /* Main.storyboard */; };
-		9DFC0E271EA262B400FFEF97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DFC0E261EA262B400FFEF97 /* Assets.xcassets */; };
 		9DFC0E2A1EA262B400FFEF97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DFC0E281EA262B400FFEF97 /* LaunchScreen.storyboard */; };
 		9DFC0E321EA26CFF00FFEF97 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFC0E311EA26CFF00FFEF97 /* PageViewController.swift */; };
 		9DFC0E351EA26D7800FFEF97 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFC0E341EA26D7800FFEF97 /* MainViewController.swift */; };
@@ -37,10 +37,10 @@
 		9D60193F1EA64CDE00BA3649 /* DoneTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneTableViewCell.swift; sourceTree = "<group>"; };
 		9D6019431EA7074500BA3649 /* MainTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTextView.swift; sourceTree = "<group>"; };
 		9DD86AB71ED908C9002A4BC5 /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
+		9DD86AB91EDB2947002A4BC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9DFC0E1C1EA262B400FFEF97 /* Focus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Focus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DFC0E1F1EA262B400FFEF97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DFC0E241EA262B400FFEF97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9DFC0E261EA262B400FFEF97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9DFC0E291EA262B400FFEF97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9DFC0E2B1EA262B400FFEF97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DFC0E311EA26CFF00FFEF97 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
@@ -117,7 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				9DFC0E1F1EA262B400FFEF97 /* AppDelegate.swift */,
-				9DFC0E261EA262B400FFEF97 /* Assets.xcassets */,
+				9DD86AB91EDB2947002A4BC5 /* Assets.xcassets */,
 				9DFC0E281EA262B400FFEF97 /* LaunchScreen.storyboard */,
 				9DFC0E2B1EA262B400FFEF97 /* Info.plist */,
 			);
@@ -168,7 +168,7 @@
 				TargetAttributes = {
 					9DFC0E1B1EA262B400FFEF97 = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = GJDK79YZS6;
+						DevelopmentTeam = J2NBXB5LBL;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -197,7 +197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9DFC0E2A1EA262B400FFEF97 /* LaunchScreen.storyboard in Resources */,
-				9DFC0E271EA262B400FFEF97 /* Assets.xcassets in Resources */,
+				9DD86ABA1EDB2947002A4BC5 /* Assets.xcassets in Resources */,
 				9DFC0E251EA262B400FFEF97 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -391,7 +391,6 @@
 			baseConfigurationReference = 6FA4E63FEEB03583918AF5D1 /* Pods-Focus.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-
 				DEVELOPMENT_TEAM = J2NBXB5LBL;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -406,7 +405,7 @@
 				INFOPLIST_FILE = Focus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.pika7ma.Focus;
+				PRODUCT_BUNDLE_IDENTIFIER = com.knox.Focus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Pods/MGSwipeTableCell/MGSwipeTableCell/MGSwipeTableCell.h";
 				SWIFT_VERSION = 3.0;
@@ -428,7 +427,7 @@
 				INFOPLIST_FILE = Focus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.pika7ma.Focus;
+				PRODUCT_BUNDLE_IDENTIFIER = com.knox.Focus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Pods/MGSwipeTableCell/MGSwipeTableCell/MGSwipeTableCell.h";
 				SWIFT_VERSION = 3.0;

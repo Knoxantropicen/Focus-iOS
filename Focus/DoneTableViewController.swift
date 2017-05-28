@@ -66,7 +66,7 @@ class DoneTableViewController: UITableViewController {
         
         switch state {
         case UIGestureRecognizerState.began:
-            if indexPath != nil && indexPath?.section != 0{
+            if indexPath != nil && indexPath?.section != 0 {
                 Path.initialIndexPath = indexPath
                 let cell = tableView.cellForRow(at: indexPath!) as UITableViewCell!
                 My.cellSnapshot  = snapshotOfCell(cell!)
@@ -110,7 +110,6 @@ class DoneTableViewController: UITableViewController {
                     DoneTableViewController.affairs.insert(DoneTableViewController.affairs.remove(at: Path.initialIndexPath!.row), at: indexPath!.row)
                     DoneTableViewController.modes.insert(DoneTableViewController.modes.remove(at: Path.initialIndexPath!.row), at: indexPath!.row)
                     DoneTableViewController.descriptions.insert(DoneTableViewController.descriptions.remove(at: Path.initialIndexPath!.row), at: indexPath!.row)
-                    self.tableView.reloadData()
                     setDefaults()
                     tableView.moveRow(at: Path.initialIndexPath!, to: indexPath!)
                     Path.initialIndexPath = indexPath
@@ -125,7 +124,7 @@ class DoneTableViewController: UITableViewController {
                     cell?.isHidden = false
                     cell?.alpha = 0.0
                 }
-                
+
                 UIView.animate(withDuration: 0.25, animations: { () -> Void in
                     My.cellSnapshot!.center = (cell?.center)!
                     My.cellSnapshot!.transform = CGAffineTransform.identity
@@ -139,6 +138,7 @@ class DoneTableViewController: UITableViewController {
                         My.cellSnapshot = nil
                     }
                 })
+                self.tableView.reloadData()
             }
         }
     }
@@ -188,10 +188,6 @@ class DoneTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let mainCell = tableView.dequeueReusableCell(withIdentifier: "MainAffair", for: indexPath)
-            let mainAffair = MainViewController.typingText
-            if let mainAffairCell = mainCell as? MainTableViewCell {
-                mainAffairCell.mainAffair = mainAffair
-            }
             return mainCell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "DoneAffair", for: indexPath) as! MGSwipeTableCell
@@ -224,16 +220,10 @@ class DoneTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return 108
+            return 68
         }
         else {
             return 68
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if let mainCell = cell as? MainTableViewCell {
-            mainCell.changeStateAno()
         }
     }
 }

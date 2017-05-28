@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PopUpViewController: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
+class PopUpViewController: UIViewController, UITextViewDelegate, UIScrollViewDelegate, UIGestureRecognizerDelegate, UIPageViewControllerDelegate {
     
     private let textModel = "Click 'Edit' to add description..."
     var rowNum: Int = 0
@@ -20,7 +20,16 @@ class PopUpViewController: UIViewController, UITextViewDelegate, UIScrollViewDel
         let tapGesture = UITapGestureRecognizer(target: self, action:#selector(hideKeyboard))
         view.addGestureRecognizer(tapGesture)
         
+//        let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(stopSwiping))
+//        swipeGesture.direction = UISwipeGestureRecognizerDirection.right
+//        swipeGesture.delegate = self
+//        view.addGestureRecognizer(swipeGesture)
+        
         self.showAnimate()
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
     
     func showAnimate() {
@@ -34,6 +43,9 @@ class PopUpViewController: UIViewController, UITextViewDelegate, UIScrollViewDel
             self.view.alpha = 1.0
             self.view.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
         });
+        
+//        let pageView = PageViewController()
+//        pageView.orderedViewControllers[2].view.isUserInteractionEnabled = false
         
 //        let pageView = PageViewController()
 //        for gestureRecognizer in pageView.gestureRecognizers {

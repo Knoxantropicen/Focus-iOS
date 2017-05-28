@@ -10,33 +10,6 @@ import UIKit
 
 class MainTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var mainAffairDescription: UILabel!
-    
-    var mainAffair = String() {
-        didSet {
-            mainAffairDescription?.text = mainAffair
-        }
-    }
-    
-    @IBOutlet weak var mainMode: UIButton!
-    @IBOutlet weak var mainModeAno: UIButton!
-    
-    func changeState() {
-        if MainViewController.isQuestion {
-            mainMode.setTitle("?", for: .normal)
-        } else {
-            mainMode.setTitle("!", for: .normal)
-        }
-    }
-    
-    func changeStateAno() {
-        if MainViewController.isQuestion {
-            mainModeAno.setTitle("?", for: .normal)
-        } else {
-            mainModeAno.setTitle("!", for: .normal)
-        }
-    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
