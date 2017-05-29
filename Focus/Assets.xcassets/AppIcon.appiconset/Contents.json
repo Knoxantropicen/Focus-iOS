@@ -1,14 +1,9 @@
 {
   "images" : [
     {
-<<<<<<< HEAD
-      "idiom" : "iphone",
-      "size" : "20x20",
-=======
       "size" : "20x20",
       "idiom" : "iphone",
       "filename" : "icon40.png",
->>>>>>> Test commit
       "scale" : "2x"
     },
     {
@@ -17,14 +12,9 @@
       "scale" : "3x"
     },
     {
-<<<<<<< HEAD
-      "idiom" : "iphone",
-      "size" : "29x29",
-=======
       "size" : "29x29",
       "idiom" : "iphone",
       "filename" : "icon58.png",
->>>>>>> Test commit
       "scale" : "2x"
     },
     {
@@ -33,14 +23,9 @@
       "scale" : "3x"
     },
     {
-<<<<<<< HEAD
-      "idiom" : "iphone",
-      "size" : "40x40",
-=======
       "size" : "40x40",
       "idiom" : "iphone",
       "filename" : "icon80.png",
->>>>>>> Test commit
       "scale" : "2x"
     },
     {
@@ -49,14 +34,9 @@
       "scale" : "3x"
     },
     {
-<<<<<<< HEAD
-      "idiom" : "iphone",
-      "size" : "60x60",
-=======
       "size" : "60x60",
       "idiom" : "iphone",
       "filename" : "icon120.png",
->>>>>>> Test commit
       "scale" : "2x"
     },
     {

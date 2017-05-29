@@ -10,12 +10,6 @@ import UIKit
 
 class DoneTableViewController: UITableViewController {
 
-<<<<<<< HEAD
-    private static var affairs = Array<String>()
-    
-    func addAffair(newAffair affair: String) {
-        DoneTableViewController.affairs.insert(affair, at: 0)
-=======
     static var affairs = Array<String>()
     static var modes = Array<String>()
     static var descriptions = Array<String>()
@@ -33,36 +27,27 @@ class DoneTableViewController: UITableViewController {
         DoneTableViewController.modes.insert(mode, at: 0)
         DoneTableViewController.descriptions.insert("Click 'Edit' to add description...", at: 0)
         setDefaults()
->>>>>>> Test commit
     }
     
     func deleteAffair(deletingAffair index: Int) {
         DoneTableViewController.affairs.remove(at: index)
-<<<<<<< HEAD
-=======
         DoneTableViewController.modes.remove(at: index)
         DoneTableViewController.descriptions.remove(at: index)
         setDefaults()
->>>>>>> Test commit
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
-<<<<<<< HEAD
-=======
         let longpress = UILongPressGestureRecognizer(target: self, action: #selector(DoingTableViewController.longPressGestureRecognized(_:)))
         tableView.addGestureRecognizer(longpress)
         tableView.alwaysBounceVertical = false
         tableView.separatorColor = UIColor.black.withAlphaComponent(0.2)
->>>>>>> Test commit
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tableView.reloadData()
-<<<<<<< HEAD
-=======
         view.backgroundColor = Style.mainBackgroundColor
     }
     
@@ -186,7 +171,6 @@ class DoneTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
->>>>>>> Test commit
     }
     
     // MARK: - Table view data source
@@ -206,45 +190,27 @@ class DoneTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let mainCell = tableView.dequeueReusableCell(withIdentifier: "MainAffair", for: indexPath)
-<<<<<<< HEAD
-            let mainAffair = MainViewController.typingText
-            if let mainAffairCell = mainCell as? MainTableViewCell {
-                mainAffairCell.mainAffair = mainAffair
-=======
             mainCell.backgroundColor = Style.tableBackgroundColor
             for subView in mainCell.contentView.subviews {
                 if let textLabelView = subView as? UILabel {
                     textLabelView.textColor = Style.mainTextColor
                 }
->>>>>>> Test commit
             }
             return mainCell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "DoneAffair", for: indexPath) as! MGSwipeTableCell
             let affair = DoneTableViewController.affairs[indexPath.row]
-<<<<<<< HEAD
-            if let affairCell = cell as? DoneTableViewCell {
-                affairCell.affair = affair
-            }
-            cell.rightButtons = [MGSwipeButton(title: "", icon: UIImage(named: "delete.png"), backgroundColor: .red, padding: 20, callback: {
-=======
             let mode = DoneTableViewController.modes[indexPath.row]
             if let affairCell = cell as? DoneTableViewCell {
                 affairCell.affair = affair
                 affairCell.settledMode.setTitle(mode, for: .normal)
             }
             cell.rightButtons = [MGSwipeButton(title: "", icon: UIImage(named: "delete.png"), backgroundColor: UIColor.red.withAlphaComponent(Style.optionAlpha), padding: 20, callback: {
->>>>>>> Test commit
                 (sender: MGSwipeTableCell!) -> Bool in
                 self.deleteAffair(deletingAffair: indexPath.row)
                 self.tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.bottom)
                 self.tableView.reloadData()
                 return true
-<<<<<<< HEAD
-            }), MGSwipeButton(title: "", icon: UIImage(named: "more.png"), backgroundColor: .lightGray, padding: 20)]
-            cell.rightSwipeSettings.transition = .border
-            cell.rightExpansion.threshold = 0.5
-=======
             }), MGSwipeButton(title: "", icon: UIImage(named: "more.png"), backgroundColor: UIColor.lightGray.withAlphaComponent(Style.optionAlpha), padding: 20, callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
                 self.showPopUp(rowNum: indexPath.row)
@@ -253,7 +219,6 @@ class DoneTableViewController: UITableViewController {
             cell.rightSwipeSettings.transition = .border
             cell.rightExpansion.threshold = 0.5
             cell.backgroundColor = Style.cellBackgroundColor
->>>>>>> Test commit
             return cell
         }
     }
@@ -263,38 +228,6 @@ class DoneTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-<<<<<<< HEAD
-        if indexPath.section == 0 {
-            return 90
-        }
-        else {
-            return 68
-        }
-    }
-    
-//        override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-//            if indexPath.section == 0 {
-//                return
-//            }
-//            if editingStyle == .delete {
-//                DoneTableViewController.affairs.remove(at: indexPath.row)
-//                tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
-//            }
-//        }
-//    
-//        override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-//            if indexPath.section == 0 {
-//                return nil
-//            }
-//            let deleteRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.destructive, title: "Delete", handler: { (action: UITableViewRowAction, index: IndexPath) in
-//                DoneTableViewController.affairs.remove(at: indexPath.row)
-//                self.tableView.deleteRows(at: [indexPath], with: .automatic)
-//            })
-//            let actions = [deleteRowAction]
-//            return actions
-//        }
-=======
         return 68
     }
->>>>>>> Test commit
 }

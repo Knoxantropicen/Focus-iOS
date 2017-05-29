@@ -1,22 +1,14 @@
-<<<<<<< HEAD
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ELy-Dc-gE7">
-    <device id="retina4_7" orientation="portrait">
-=======
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ELy-Dc-gE7">
     <device id="retina5_5" orientation="portrait">
->>>>>>> Test commit
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
-<<<<<<< HEAD
-=======
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
->>>>>>> Test commit
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,38 +18,11 @@
             <objects>
                 <tableViewController storyboardIdentifier="DoingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5d2-yc-LmM" customClass="DoingTableViewController" customModule="Focus" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" id="YdL-i6-Ncm">
-<<<<<<< HEAD
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-=======
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
->>>>>>> Test commit
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-<<<<<<< HEAD
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MainAffair" rowHeight="113" id="oQw-TC-ycn" customClass="MainTableViewCell" customModule="Focus" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="113"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oQw-TC-ycn" id="c1t-ga-WxI">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="112.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ac6-pu-iiL">
-                                            <rect key="frame" x="18" y="30" width="305" height="73.5"/>
-                                            <attributedString key="attributedText">
-                                                <fragment content="Label">
-                                                    <attributes>
-                                                        <font key="NSFont" size="24" name="HelveticaNeue-UltraLightItalic"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QiR-cw-ENK">
-                                            <rect key="frame" x="18" y="8" width="334" height="21"/>
-=======
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MainAffair" rowHeight="68" id="oQw-TC-ycn" customClass="MainTableViewCell" customModule="Focus" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="68"/>
                                 <autoresizingMask key="autoresizingMask"/>
@@ -73,7 +38,6 @@
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QiR-cw-ENK">
                                             <rect key="frame" x="18" y="8" width="373" height="21"/>
->>>>>>> Test commit
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="MIW-1t-pym"/>
                                             </constraints>
@@ -81,48 +45,6 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-<<<<<<< HEAD
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5eg-Yq-h79">
-                                            <rect key="frame" x="331" y="39" width="26" height="55.5"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="26" id="KPA-xe-mWy"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-UltraLightItalic" family="Helvetica Neue" pointSize="24"/>
-                                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="5eg-Yq-h79" secondAttribute="trailing" constant="10" id="4Kd-nV-8Vd"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="QiR-cw-ENK" secondAttribute="trailing" constant="15" id="8ge-xE-S5x"/>
-                                        <constraint firstItem="QiR-cw-ENK" firstAttribute="leading" secondItem="ac6-pu-iiL" secondAttribute="leading" id="E76-Um-Zab"/>
-                                        <constraint firstItem="ac6-pu-iiL" firstAttribute="top" secondItem="QiR-cw-ENK" secondAttribute="bottom" constant="1" id="EHc-UA-HTw"/>
-                                        <constraint firstItem="5eg-Yq-h79" firstAttribute="top" secondItem="QiR-cw-ENK" secondAttribute="bottom" constant="10" id="L6k-p5-oKi"/>
-                                        <constraint firstItem="QiR-cw-ENK" firstAttribute="leading" secondItem="c1t-ga-WxI" secondAttribute="leadingMargin" constant="10" id="QcH-iQ-kBm"/>
-                                        <constraint firstItem="QiR-cw-ENK" firstAttribute="top" secondItem="c1t-ga-WxI" secondAttribute="topMargin" id="UMJ-US-LZI"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="5eg-Yq-h79" secondAttribute="bottom" constant="10" id="aa0-EH-Q4z"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="ac6-pu-iiL" secondAttribute="bottom" constant="1" id="bIS-k5-PVe"/>
-                                        <constraint firstItem="5eg-Yq-h79" firstAttribute="leading" secondItem="ac6-pu-iiL" secondAttribute="trailing" constant="8" symbolic="YES" id="hjS-FR-wcs"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="mainAffairDescription" destination="ac6-pu-iiL" id="cz8-0P-exu"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DoingAffair" rowHeight="68" id="8uf-er-vj5" customClass="DoingTableViewCell" customModule="Focus" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="141" width="375" height="68"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8uf-er-vj5" id="uEk-PT-34z">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="67.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HOP-vu-zmP">
-                                            <rect key="frame" x="18" y="0.0" width="334" height="60"/>
-                                            <attributedString key="attributedText">
-                                                <fragment content="Label">
-                                                    <attributes>
-                                                        <font key="NSFont" size="20" name="HelveticaNeue-UltraLightItalic"/>
-=======
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailingMargin" secondItem="ac6-pu-iiL" secondAttribute="trailing" constant="15" id="5uh-YQ-JPc"/>
@@ -149,27 +71,12 @@
                                                 <fragment content="Label">
                                                     <attributes>
                                                         <font key="NSFont" size="20" name="HelveticaNeue-UltraLight"/>
->>>>>>> Test commit
                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>
                                             <nil key="highlightedColor"/>
                                         </label>
-<<<<<<< HEAD
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="HOP-vu-zmP" secondAttribute="trailing" constant="15" id="IDL-UN-McP"/>
-                                        <constraint firstAttribute="leadingMargin" secondItem="HOP-vu-zmP" secondAttribute="leading" constant="-10" id="Rcf-6N-jXw"/>
-                                        <constraint firstItem="HOP-vu-zmP" firstAttribute="top" secondItem="uEk-PT-34z" secondAttribute="topMargin" constant="-8" id="rDZ-sB-rNI"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="HOP-vu-zmP" secondAttribute="bottom" constant="8" id="Vy9-Eb-AFD"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="affairDescription" destination="HOP-vu-zmP" id="TXR-Xy-dWL"/>
-=======
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FTG-pE-aWX">
                                             <rect key="frame" x="368" y="10.666666666666664" width="30" height="45"/>
                                             <constraints>
@@ -192,7 +99,6 @@
                                 <connections>
                                     <outlet property="affairDescription" destination="HOP-vu-zmP" id="TXR-Xy-dWL"/>
                                     <outlet property="settledMode" destination="FTG-pE-aWX" id="UBp-i9-v0r"/>
->>>>>>> Test commit
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -215,31 +121,6 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-<<<<<<< HEAD
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cd7-fK-XcS">
-                                <rect key="frame" x="250" y="28" width="83" height="62"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N1G-jx-oKv">
-                                        <rect key="frame" x="0.0" y="0.0" width="43" height="62"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="43" id="LBj-tT-Uwb"/>
-                                        </constraints>
-                                        <state key="normal">
-                                            <attributedString key="attributedTitle">
-                                                <fragment content="√">
-                                                    <attributes>
-                                                        <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <font key="NSFont" size="24" name="HelveticaNeue-UltraLight"/>
-                                                        <font key="NSOriginalFont" metaFont="system" size="24"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
-                                        </state>
-=======
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -271,17 +152,10 @@
                                             <constraint firstAttribute="width" constant="27" id="NJy-8t-Qvk"/>
                                         </constraints>
                                         <state key="normal" title="" image="check-light"/>
->>>>>>> Test commit
                                         <connections>
                                             <action selector="finishAffair:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sHF-Fx-ul8"/>
                                         </connections>
                                     </button>
-<<<<<<< HEAD
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SfF-CJ-5HD">
-                                        <rect key="frame" x="53" y="0.0" width="30" height="62"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-UltraLightItalic" family="Helvetica Neue" pointSize="43"/>
-                                        <state key="normal" title="+">
-=======
                                     <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" placeholderIntrinsicWidth="20" placeholderIntrinsicHeight="20" restorationIdentifier="plusButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SfF-CJ-5HD">
                                         <rect key="frame" x="42" y="0.0" width="38" height="40"/>
                                         <constraints>
@@ -290,7 +164,6 @@
                                         </constraints>
                                         <inset key="contentEdgeInsets" minX="0.0" minY="2" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" image="plus-light">
->>>>>>> Test commit
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -299,34 +172,6 @@
                                     </button>
                                 </subviews>
                             </stackView>
-<<<<<<< HEAD
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.29999999999999999" contentMode="scaleToFill" text="Type your sentence here..." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="U9L-89-KLC" customClass="MainTextView" customModule="Focus" customModuleProvider="target">
-                                <rect key="frame" x="36" y="90" width="273" height="487"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLightItalic" family="Helvetica Neue" pointSize="30"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKn-Ht-RiV">
-                                <rect key="frame" x="319" y="307" width="30" height="54"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLightItalic" family="Helvetica Neue" pointSize="36"/>
-                                <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="?">
-                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="changeMode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hQq-VL-Jfy"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="cd7-fK-XcS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="9hr-XR-WaG"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="U9L-89-KLC" secondAttribute="trailing" constant="50" id="MS3-bU-kWp"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="cd7-fK-XcS" secondAttribute="trailing" constant="26" id="Owl-76-gbZ"/>
-                            <constraint firstItem="U9L-89-KLC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="aq5-9E-TmF"/>
-                            <constraint firstItem="dKn-Ht-RiV" firstAttribute="centerY" secondItem="U9L-89-KLC" secondAttribute="centerY" id="d0i-Hk-WT3"/>
-                            <constraint firstItem="U9L-89-KLC" firstAttribute="top" secondItem="cd7-fK-XcS" secondAttribute="bottom" id="kBN-we-oYu"/>
-=======
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.29999999999999999" contentMode="scaleToFill" text="Start typing here..." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="U9L-89-KLC" customClass="MainTextView" customModule="Focus" customModuleProvider="target">
                                 <rect key="frame" x="53" y="118" width="301" height="500"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -346,61 +191,32 @@
                             <constraint firstItem="U9L-89-KLC" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="301:736" id="L0P-Rf-RKR"/>
                             <constraint firstItem="dKn-Ht-RiV" firstAttribute="leading" secondItem="U9L-89-KLC" secondAttribute="trailing" id="PrC-9D-AX2"/>
                             <constraint firstItem="Qcw-Tn-Y5U" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="18" id="Qi9-Jt-SGm"/>
->>>>>>> Test commit
                             <constraint firstItem="U9L-89-KLC" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="pCN-1D-2xJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dKn-Ht-RiV" secondAttribute="trailing" constant="10" id="xG0-Zd-rim"/>
                         </constraints>
                     </view>
                     <connections>
-<<<<<<< HEAD
-                        <outlet property="mode" destination="dKn-Ht-RiV" id="12e-Nn-5Jf"/>
-=======
                         <outlet property="checkButton" destination="N1G-jx-oKv" id="v5o-vT-NUh"/>
                         <outlet property="mode" destination="dKn-Ht-RiV" id="12e-Nn-5Jf"/>
                         <outlet property="plusButton" destination="SfF-CJ-5HD" id="32B-fA-KqU"/>
                         <outlet property="settingsButton" destination="WSY-y9-Dvk" id="MJl-vS-hNE"/>
->>>>>>> Test commit
                         <outlet property="typingArea" destination="U9L-89-KLC" id="aLr-7m-qOI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
-            <point key="canvasLocation" x="447.19999999999999" y="450.22488755622192"/>
-=======
             <point key="canvasLocation" x="446.37681159420293" y="450.00000000000006"/>
->>>>>>> Test commit
         </scene>
         <!--Done Table View Controller-->
         <scene sceneID="5oG-qx-Nbd">
             <objects>
                 <tableViewController storyboardIdentifier="DoneViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ctu-6O-Opa" customClass="DoneTableViewController" customModule="Focus" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="77" sectionHeaderHeight="28" sectionFooterHeight="28" id="Awb-ue-F8E">
-<<<<<<< HEAD
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-=======
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
->>>>>>> Test commit
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-<<<<<<< HEAD
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MainAffair" rowHeight="113" id="oWg-uJ-y4W" customClass="MainTableViewCell" customModule="Focus" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="113"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oWg-uJ-y4W" id="fTT-XA-til">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="112.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hze-Di-PRM" userLabel="Msin Affair Description">
-                                            <rect key="frame" x="18" y="30" width="334" height="75"/>
-                                            <attributedString key="attributedText">
-                                                <fragment content="Label">
-                                                    <attributes>
-                                                        <font key="NSFont" size="24" name="HelveticaNeue-UltraLightItalic"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-=======
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MainAffair" rowHeight="68" id="oWg-uJ-y4W">
                                 <rect key="frame" x="0.0" y="28" width="414" height="68"/>
                                 <autoresizingMask key="autoresizingMask"/>
@@ -415,18 +231,13 @@
                                                     <attributes>
                                                         <font key="NSFont" size="24" name="HelveticaNeue-ThinItalic"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
->>>>>>> Test commit
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meI-gP-be0">
-<<<<<<< HEAD
-                                            <rect key="frame" x="18" y="8" width="327" height="21"/>
-=======
                                             <rect key="frame" x="18" y="8" width="366" height="21"/>
->>>>>>> Test commit
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="bgg-K0-edI"/>
                                             </constraints>
@@ -446,25 +257,6 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-<<<<<<< HEAD
-                                <connections>
-                                    <outlet property="mainAffairDescription" destination="hze-Di-PRM" id="VwZ-oW-emf"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DoneAffair" rowHeight="68" id="HRJ-nD-bv6" customClass="DoneTableViewCell" customModule="Focus" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="141" width="375" height="68"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HRJ-nD-bv6" id="6rS-ct-V6F">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="67.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TIh-6v-ny9">
-                                            <rect key="frame" x="18" y="0.0" width="334" height="60"/>
-                                            <attributedString key="attributedText">
-                                                <fragment content="Label">
-                                                    <attributes>
-                                                        <font key="NSFont" size="20" name="HelveticaNeue-UltraLightItalic"/>
-=======
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DoneAffair" rowHeight="68" id="HRJ-nD-bv6" customClass="DoneTableViewCell" customModule="Focus" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="96" width="414" height="68"/>
@@ -479,21 +271,12 @@
                                                 <fragment content="Label">
                                                     <attributes>
                                                         <font key="NSFont" size="20" name="HelveticaNeue-UltraLight"/>
->>>>>>> Test commit
                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>
                                             <nil key="highlightedColor"/>
                                         </label>
-<<<<<<< HEAD
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="TIh-6v-ny9" secondAttribute="trailing" constant="15" id="MoL-oC-bZu"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="TIh-6v-ny9" secondAttribute="bottom" constant="-0.5" id="cpf-Fd-fs9"/>
-                                        <constraint firstItem="TIh-6v-ny9" firstAttribute="leading" secondItem="6rS-ct-V6F" secondAttribute="leadingMargin" constant="10" id="eQa-kF-Eun"/>
-                                        <constraint firstItem="TIh-6v-ny9" firstAttribute="top" secondItem="6rS-ct-V6F" secondAttribute="topMargin" constant="-8" id="v3d-gw-vDg"/>
-=======
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v7S-dI-C2y">
                                             <rect key="frame" x="368" y="11.666666666666664" width="30" height="45"/>
                                             <constraints>
@@ -511,15 +294,11 @@
                                         <constraint firstItem="TIh-6v-ny9" firstAttribute="leading" secondItem="6rS-ct-V6F" secondAttribute="leadingMargin" constant="10" id="eQa-kF-Eun"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="v7S-dI-C2y" secondAttribute="trailing" constant="8" id="enL-GK-AZv"/>
                                         <constraint firstItem="v7S-dI-C2y" firstAttribute="centerY" secondItem="6rS-ct-V6F" secondAttribute="centerY" id="ngp-3f-vjy"/>
->>>>>>> Test commit
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="affairDescription" destination="TIh-6v-ny9" id="hFM-gW-IDO"/>
-<<<<<<< HEAD
-=======
                                     <outlet property="settledMode" destination="v7S-dI-C2y" id="hza-MM-ika"/>
->>>>>>> Test commit
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -533,8 +312,6 @@
             </objects>
             <point key="canvasLocation" x="1127" y="451"/>
         </scene>
-<<<<<<< HEAD
-=======
         <!--Settings View Controller-->
         <scene sceneID="ssl-wM-TWv">
             <objects>
@@ -809,7 +586,6 @@
             </objects>
             <point key="canvasLocation" x="1124.6376811594205" y="1115.217391304348"/>
         </scene>
->>>>>>> Test commit
         <!--Page View Controller-->
         <scene sceneID="okj-Vw-N2T">
             <objects>
@@ -819,12 +595,9 @@
             <point key="canvasLocation" x="450" y="-220"/>
         </scene>
     </scenes>
-<<<<<<< HEAD
-=======
     <resources>
         <image name="check-light" width="50" height="50"/>
         <image name="plus-light" width="128" height="128"/>
         <image name="settings-light" width="25" height="25"/>
     </resources>
->>>>>>> Test commit
 </document>
