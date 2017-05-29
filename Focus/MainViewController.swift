@@ -12,13 +12,44 @@ class MainViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var typingArea: UITextView!
     
+    @IBOutlet weak var settingsButton: UIButton!
+    @IBOutlet weak var checkButton: UIButton!
+    @IBOutlet weak var plusButton: UIButton!
+    
     private let defaults = UserDefaults.standard
     
     private let textModel = "Start typing here..."
     
+//    override func viewWillAppear(_ animated: Bool) {
+//        view.backgroundColor = Style.mainBackgroundColor
+//    }
+    
+    func setThemeIcon() {
+        settingsButton.setImage(Style.settingsIcon, for: .normal)
+        checkButton.setImage(Style.checkIcon, for: .normal)
+        plusButton.setImage(Style.plusIcon, for: .normal)
+    }
+    
+    func setThemeColor() {
+        view.backgroundColor = Style.mainBackgroundColor
+        typingArea.backgroundColor = Style.mainBackgroundColor
+        typingArea.textColor = Style.mainTextColor
+        mode.setTitleColor(Style.symbolColor, for: .normal)
+    }
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         typingArea.delegate = self
+        
+        if UserDefaults.standard.bool(forKey: "LightMode") {
+            Style.themeLight()
+        } else {
+            Style.themeDark()
+        }
+        
+        setThemeIcon()
+        setThemeColor()
         
         let tapGesture = UITapGestureRecognizer(target: self, action:#selector(MainViewController.hideKeyboard))
         view.addGestureRecognizer(tapGesture)

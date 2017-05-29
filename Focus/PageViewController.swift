@@ -37,7 +37,7 @@ class PageViewController: UIPageViewController, UIScrollViewDelegate, UIGestureR
         NotificationCenter.default.addObserver(self, selector: #selector(disableSwipe), name:NSNotification.Name(rawValue: "disableSwipe"), object: nil)
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.backgroundColor = .white
+        appDelegate.window?.backgroundColor = Style.mainBackgroundColor
         
         if firstLaunch {
             if let doingAffairArray = UserDefaults.standard.array(forKey: "DoingAffairArray") {
@@ -116,6 +116,9 @@ extension PageViewController: UIPageViewControllerDataSource {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.backgroundColor = Style.mainBackgroundColor
+        
         guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
             return nil
         }
@@ -145,6 +148,9 @@ extension PageViewController: UIPageViewControllerDataSource {
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.backgroundColor = Style.mainBackgroundColor
         
         guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
             return nil

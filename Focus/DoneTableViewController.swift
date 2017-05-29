@@ -42,11 +42,13 @@ class DoneTableViewController: UITableViewController {
         let longpress = UILongPressGestureRecognizer(target: self, action: #selector(DoingTableViewController.longPressGestureRecognized(_:)))
         tableView.addGestureRecognizer(longpress)
         tableView.alwaysBounceVertical = false
+        tableView.separatorColor = UIColor.black.withAlphaComponent(0.2)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tableView.reloadData()
+        view.backgroundColor = Style.mainBackgroundColor
     }
     
     func longPressGestureRecognized(_ gestureRecognizer: UIGestureRecognizer) {
@@ -188,6 +190,12 @@ class DoneTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let mainCell = tableView.dequeueReusableCell(withIdentifier: "MainAffair", for: indexPath)
+            mainCell.backgroundColor = Style.tableBackgroundColor
+            for subView in mainCell.contentView.subviews {
+                if let textLabelView = subView as? UILabel {
+                    textLabelView.textColor = Style.mainTextColor
+                }
+            }
             return mainCell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "DoneAffair", for: indexPath) as! MGSwipeTableCell
@@ -197,19 +205,20 @@ class DoneTableViewController: UITableViewController {
                 affairCell.affair = affair
                 affairCell.settledMode.setTitle(mode, for: .normal)
             }
-            cell.rightButtons = [MGSwipeButton(title: "", icon: UIImage(named: "delete.png"), backgroundColor: UIColor.red.withAlphaComponent(0.7), padding: 20, callback: {
+            cell.rightButtons = [MGSwipeButton(title: "", icon: UIImage(named: "delete.png"), backgroundColor: UIColor.red.withAlphaComponent(Style.optionAlpha), padding: 20, callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
                 self.deleteAffair(deletingAffair: indexPath.row)
                 self.tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.bottom)
                 self.tableView.reloadData()
                 return true
-            }), MGSwipeButton(title: "", icon: UIImage(named: "more.png"), backgroundColor: UIColor.lightGray.withAlphaComponent(0.7), padding: 20, callback: {
+            }), MGSwipeButton(title: "", icon: UIImage(named: "more.png"), backgroundColor: UIColor.lightGray.withAlphaComponent(Style.optionAlpha), padding: 20, callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
                 self.showPopUp(rowNum: indexPath.row)
                 return true
             })]
             cell.rightSwipeSettings.transition = .border
             cell.rightExpansion.threshold = 0.5
+            cell.backgroundColor = Style.cellBackgroundColor
             return cell
         }
     }

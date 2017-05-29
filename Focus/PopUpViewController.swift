@@ -15,6 +15,12 @@ class PopUpViewController: UIViewController {
     private let textModel = "Click 'Edit' to add description..."
     var rowNum: Int = 0
 
+    @IBOutlet weak var viewFrame: UIView!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var descriptionText: UITextView!
+    @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var editButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,7 +32,19 @@ class PopUpViewController: UIViewController {
         self.showAnimate()
     }
     
+    func setThemeColor() {
+        viewFrame.backgroundColor = Style.popBackgroundColor
+        descriptionText.backgroundColor = Style.cellBackgroundColor
+        let textColor = Style.mainTextColor
+        descriptionLabel.textColor = textColor
+        descriptionText.textColor = textColor
+        closeButton.setTitleColor(textColor, for: .normal)
+        editButton.setTitleColor(textColor, for: .normal)
+    }
+    
     func showAnimate() {
+        setThemeColor()
+        
         PopUpViewController.popingUp = true
         
         descriptionText.text = DoneTableViewController.descriptions[rowNum]
@@ -50,10 +68,10 @@ class PopUpViewController: UIViewController {
         view.endEditing(true)
     }
     
-    @IBOutlet weak var descriptionText: UITextView!
+
     
     @IBAction func EnableEdit(_ sender: UIButton) {
-        descriptionText.backgroundColor = UIColor.white
+        descriptionText.backgroundColor = Style.editTextColor
         descriptionText.isEditable = true
         descriptionText.becomeFirstResponder()
         descriptionText.alpha = 1

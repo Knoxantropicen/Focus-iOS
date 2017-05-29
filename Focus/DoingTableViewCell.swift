@@ -15,6 +15,8 @@ class DoingTableViewCell: MGSwipeTableCell, MGSwipeTableCellDelegate {
     var affair = String() {
         didSet {
             affairDescription?.text = affair
+            affairDescription?.textColor = Style.mainTextColor
+            settledMode.setTitleColor(Style.symbolColor, for: .normal)
         }
     }
     

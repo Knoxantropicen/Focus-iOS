@@ -35,11 +35,13 @@ class DoingTableViewController: UITableViewController {
         let longpress = UILongPressGestureRecognizer(target: self, action: #selector(DoingTableViewController.longPressGestureRecognized(_:)))
         tableView.addGestureRecognizer(longpress)
         tableView.alwaysBounceVertical = false
+        tableView.separatorColor = UIColor.black.withAlphaComponent(0.2)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tableView.reloadData()
+        view.backgroundColor = Style.mainBackgroundColor
     }
     
     func longPressGestureRecognized(_ gestureRecognizer: UIGestureRecognizer) {
@@ -170,6 +172,12 @@ class DoingTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let mainCell = tableView.dequeueReusableCell(withIdentifier: "MainAffair", for: indexPath)
+            mainCell.backgroundColor = Style.tableBackgroundColor
+            for subView in mainCell.contentView.subviews {
+                if let textLabelView = subView as? UILabel {
+                    textLabelView.textColor = Style.mainTextColor
+                }
+            }
             return mainCell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "DoingAffair", for: indexPath) as! MGSwipeTableCell
@@ -179,7 +187,7 @@ class DoingTableViewController: UITableViewController {
                 affairCell.affair = affair
                 affairCell.settledMode.setTitle(mode, for: .normal)
             }
-            cell.leftButtons = [MGSwipeButton(title: "", icon: UIImage(named: "doublecheck.png"), backgroundColor: UIColor.green.withAlphaComponent(0.7), padding: 20, callback: {
+            cell.leftButtons = [MGSwipeButton(title: "", icon: UIImage(named: "doublecheck.png"), backgroundColor: UIColor.green.withAlphaComponent(Style.optionAlpha), padding: 20, callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
                 self.deleteAffair(deletingAffair: indexPath.row)
                 self.tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.bottom)
@@ -191,6 +199,7 @@ class DoingTableViewController: UITableViewController {
             cell.leftExpansion.buttonIndex = 0
             cell.leftExpansion.fillOnTrigger = true
             cell.leftExpansion.animationDuration = 0.5
+            cell.backgroundColor = Style.cellBackgroundColor
             return cell
         }
     }

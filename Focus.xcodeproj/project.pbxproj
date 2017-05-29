@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		9D46B0761EBF2ACE00F6CC21 /* MGSwipeTableCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D46B0741EBF2ACE00F6CC21 /* MGSwipeTableCell.framework */; };
-		9D60193E1EA6007100BA3649 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D60193D1EA6007100BA3649 /* MainTableViewCell.swift */; };
 		9D6019401EA64CDE00BA3649 /* DoneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D60193F1EA64CDE00BA3649 /* DoneTableViewCell.swift */; };
 		9D6019441EA7074500BA3649 /* MainTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6019431EA7074500BA3649 /* MainTextView.swift */; };
 		9DD86AB81ED908C9002A4BC5 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD86AB71ED908C9002A4BC5 /* PopUpViewController.swift */; };
 		9DD86ABA1EDB2947002A4BC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DD86AB91EDB2947002A4BC5 /* Assets.xcassets */; };
 		9DD86ABC1EDBB79E002A4BC5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD86ABB1EDBB79E002A4BC5 /* SettingsViewController.swift */; };
+		9DD86ABE1EDBEF02002A4BC5 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD86ABD1EDBEF02002A4BC5 /* Style.swift */; };
 		9DFC0E201EA262B400FFEF97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFC0E1F1EA262B400FFEF97 /* AppDelegate.swift */; };
 		9DFC0E251EA262B400FFEF97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DFC0E231EA262B400FFEF97 /* Main.storyboard */; };
 		9DFC0E2A1EA262B400FFEF97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DFC0E281EA262B400FFEF97 /* LaunchScreen.storyboard */; };
@@ -34,12 +34,12 @@
 		9D46B06F1EBF199E00F6CC21 /* MGSwipeTableCell.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MGSwipeTableCell.framework; path = "Pods/../build/Debug-iphoneos/MGSwipeTableCell/MGSwipeTableCell.framework"; sourceTree = "<group>"; };
 		9D46B0731EBF2ACE00F6CC21 /* DRCellSlideGestureRecognizer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DRCellSlideGestureRecognizer.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Focus-ccrkxqcbzxgetlbqgbgnsgbqedkk/Build/Products/Debug-iphoneos/DRCellSlideGestureRecognizer/DRCellSlideGestureRecognizer.framework"; sourceTree = "<group>"; };
 		9D46B0741EBF2ACE00F6CC21 /* MGSwipeTableCell.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MGSwipeTableCell.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Focus-ccrkxqcbzxgetlbqgbgnsgbqedkk/Build/Products/Debug-iphoneos/MGSwipeTableCell/MGSwipeTableCell.framework"; sourceTree = "<group>"; };
-		9D60193D1EA6007100BA3649 /* MainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		9D60193F1EA64CDE00BA3649 /* DoneTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneTableViewCell.swift; sourceTree = "<group>"; };
 		9D6019431EA7074500BA3649 /* MainTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTextView.swift; sourceTree = "<group>"; };
 		9DD86AB71ED908C9002A4BC5 /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		9DD86AB91EDB2947002A4BC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9DD86ABB1EDBB79E002A4BC5 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		9DD86ABD1EDBEF02002A4BC5 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		9DFC0E1C1EA262B400FFEF97 /* Focus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Focus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DFC0E1F1EA262B400FFEF97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DFC0E241EA262B400FFEF97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -101,7 +101,6 @@
 			children = (
 				9DFC0E331EA26D0F00FFEF97 /* Supporting Files */,
 				9DFC0E231EA262B400FFEF97 /* Main.storyboard */,
-				9D60193D1EA6007100BA3649 /* MainTableViewCell.swift */,
 				FF3F5F441EBDFBE80073ACD9 /* TodoItem.swift */,
 				9DFC0E401EA310FA00FFEF97 /* DoingTableViewCell.swift */,
 				9D60193F1EA64CDE00BA3649 /* DoneTableViewCell.swift */,
@@ -112,6 +111,7 @@
 				9DFC0E341EA26D7800FFEF97 /* MainViewController.swift */,
 				9DFC0E311EA26CFF00FFEF97 /* PageViewController.swift */,
 				9DD86ABB1EDBB79E002A4BC5 /* SettingsViewController.swift */,
+				9DD86ABD1EDBEF02002A4BC5 /* Style.swift */,
 			);
 			path = Focus;
 			sourceTree = "<group>";
@@ -262,9 +262,9 @@
 			files = (
 				FF3F5F451EBDFBE80073ACD9 /* TodoItem.swift in Sources */,
 				9DFC0E351EA26D7800FFEF97 /* MainViewController.swift in Sources */,
-				9D60193E1EA6007100BA3649 /* MainTableViewCell.swift in Sources */,
 				9DFC0E3B1EA2FE6A00FFEF97 /* DoingTableViewController.swift in Sources */,
 				9D6019401EA64CDE00BA3649 /* DoneTableViewCell.swift in Sources */,
+				9DD86ABE1EDBEF02002A4BC5 /* Style.swift in Sources */,
 				9DFC0E321EA26CFF00FFEF97 /* PageViewController.swift in Sources */,
 				9DD86AB81ED908C9002A4BC5 /* PopUpViewController.swift in Sources */,
 				9DFC0E201EA262B400FFEF97 /* AppDelegate.swift in Sources */,
