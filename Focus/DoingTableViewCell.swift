@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DoingTableViewCell: MGSwipeTableCell {
+class DoingTableViewCell: MGSwipeTableCell, MGSwipeTableCellDelegate {
 
     @IBOutlet weak var affairDescription: UILabel!
     
@@ -22,13 +22,19 @@ class DoingTableViewCell: MGSwipeTableCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        delegate = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    }
+    
+    func swipeTableCellWillBeginSwiping(_ cell: MGSwipeTableCell) {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "disableSwipe"), object: nil)
+    }
+    
+    func swipeTableCellWillEndSwiping(_ cell: MGSwipeTableCell) {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "enableSwipe"), object: nil)
     }
     
     override func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {

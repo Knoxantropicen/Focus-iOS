@@ -191,36 +191,11 @@ class DoingTableViewController: UITableViewController {
             cell.leftExpansion.buttonIndex = 0
             cell.leftExpansion.fillOnTrigger = true
             cell.leftExpansion.animationDuration = 0.5
-//            cell.allowsMultipleSwipe = true;
-//            cell.allowsOppositeSwipe = false;
             return cell
         }
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
-            return 68
-        }
-        else {
-            return 68
-        }
+        return 68
     }
-    
-    
-//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            DoingTableViewController.affairs[indexPath.section].remove(at: indexPath.row)
-//            tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
-//        }
-//    }
-//    
-//    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-//        let deleteRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.destructive, title: "Delete", handler: { (action: UITableViewRowAction, index: IndexPath) in
-//            DoingTableViewController.affairs[indexPath.section].remove(at: indexPath.row)
-//            self.tableView.deleteRows(at: [indexPath], with: .automatic)
-//        })
-//        let actions = [deleteRowAction]
-//        return actions
-//    }
-
 }

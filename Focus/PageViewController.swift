@@ -25,11 +25,6 @@ class PageViewController: UIPageViewController, UIScrollViewDelegate, UIGestureR
             }
         }
         
-//        if let scrollView = orderedViewControllers[1].view as? UIScrollView {
-//            print("succeed")
-//            scrollView.isUserInteractionEnabled = false
-//        }
-        
         let firstViewController = orderedViewControllers[1]
         setViewControllers([firstViewController],
                            direction: .forward, animated: true, completion: nil)
@@ -37,6 +32,9 @@ class PageViewController: UIPageViewController, UIScrollViewDelegate, UIGestureR
         if let myView = view?.subviews.first as? UIScrollView {
             myView.canCancelContentTouches = false
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(enableSwipe), name:NSNotification.Name(rawValue: "enableSwipe"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(disableSwipe), name:NSNotification.Name(rawValue: "disableSwipe"), object: nil)
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.window?.backgroundColor = .white
@@ -63,6 +61,14 @@ class PageViewController: UIPageViewController, UIScrollViewDelegate, UIGestureR
 //        UserDefaults.standard.set(Array<String>(), forKey: "DoingModeArray");
 //        UserDefaults.standard.set(Array<String>(), forKey: "DoneAffairArray");
 //        UserDefaults.standard.set(Array<String>(), forKey: "DoneModeArray");
+    }
+    
+    func disableSwipe(notification: NSNotification){
+        self.dataSource = nil
+    }
+    
+    func enableSwipe(notification: NSNotification){
+        self.dataSource = self
     }
     
 //    func get_uuid() -> String {
@@ -115,8 +121,6 @@ extension PageViewController: UIPageViewControllerDataSource {
         }
         
         PageViewController.currentPage -= 1
-        
-        print(PageViewController.currentPage)
         
         if PageViewController.currentPage != viewControllerIndex {
             PageViewController.currentPage = viewControllerIndex

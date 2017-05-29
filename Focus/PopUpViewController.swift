@@ -8,31 +8,27 @@
 
 import UIKit
 
-class PopUpViewController: UIViewController, UITextViewDelegate, UIScrollViewDelegate, UIGestureRecognizerDelegate, UIPageViewControllerDelegate {
+class PopUpViewController: UIViewController {
+    
+    static var popingUp = false
     
     private let textModel = "Click 'Edit' to add description..."
     var rowNum: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         
         let tapGesture = UITapGestureRecognizer(target: self, action:#selector(hideKeyboard))
         view.addGestureRecognizer(tapGesture)
         
-//        let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(stopSwiping))
-//        swipeGesture.direction = UISwipeGestureRecognizerDirection.right
-//        swipeGesture.delegate = self
-//        view.addGestureRecognizer(swipeGesture)
-        
         self.showAnimate()
     }
     
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
-    }
-    
     func showAnimate() {
+        PopUpViewController.popingUp = true
+        
         descriptionText.text = DoneTableViewController.descriptions[rowNum]
         if descriptionText.text == textModel {
             descriptionText.alpha = 0.3
@@ -42,15 +38,8 @@ class PopUpViewController: UIViewController, UITextViewDelegate, UIScrollViewDel
         UIView.animate(withDuration: 0.25, animations: {
             self.view.alpha = 1.0
             self.view.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-        });
-        
-//        let pageView = PageViewController()
-//        pageView.orderedViewControllers[2].view.isUserInteractionEnabled = false
-        
-//        let pageView = PageViewController()
-//        for gestureRecognizer in pageView.gestureRecognizers {
-//            gestureRecognizer.isEnabled = false
-//        }
+        })
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "disableSwipe"), object: nil)
     }
     
     func hideKeyboard() {
@@ -78,7 +67,7 @@ class PopUpViewController: UIViewController, UITextViewDelegate, UIScrollViewDel
     @IBAction func closePopUp(_ sender: UIButton) {
         descriptionText.isEditable = false
         DoneTableViewController.descriptions[rowNum] = descriptionText.text
-        self.removeAnimate()
+        removeAnimate()
     }
     
     func removeAnimate() {
@@ -91,10 +80,8 @@ class PopUpViewController: UIViewController, UITextViewDelegate, UIScrollViewDel
                 self.view.removeFromSuperview()
             }
             self.descriptionText.backgroundColor = UIColor(colorLiteralRed: 245/255, green: 245/255, blue: 245/255, alpha: 1)
-        });
-        let pageView = PageViewController()
-        for gestureRecognizer in pageView.gestureRecognizers {
-            gestureRecognizer.isEnabled = true
-        }
+        })
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "enableSwipe"), object: nil)
+        PopUpViewController.popingUp = false
     }
 }

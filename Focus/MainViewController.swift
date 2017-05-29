@@ -14,8 +14,6 @@ class MainViewController: UIViewController, UITextViewDelegate {
     
     private let defaults = UserDefaults.standard
     
-    static var typingText: String = ""
-    
     private let textModel = "Start typing here..."
     
     override func viewDidLoad() {
@@ -26,7 +24,6 @@ class MainViewController: UIViewController, UITextViewDelegate {
         view.addGestureRecognizer(tapGesture)
         
         if let mainAffairString = UserDefaults.standard.string(forKey: "mainAffairString") {
-            MainViewController.typingText = mainAffairString
             typingArea.text = mainAffairString
             if (mainAffairString == textModel) {
                 typingArea.alpha = 0.3
@@ -43,15 +40,11 @@ class MainViewController: UIViewController, UITextViewDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if typingArea.text == textModel {
-            MainViewController.typingText = "(Add something...)"
-        } else {
-            MainViewController.typingText = typingArea.text
-        }
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         textView.alpha = 1
+        textView.font = UIFont(name: "HelveticaNeue-UltraLight", size: 30)
         if textView.text == textModel {
             textView.text = ""
         }
@@ -66,6 +59,7 @@ class MainViewController: UIViewController, UITextViewDelegate {
         if typingArea.text == "" {
             typingArea.text = textModel
             typingArea.alpha = 0.3
+            typingArea.font = UIFont(name: "HelveticaNeue-UltraLightItalic", size: 30)
         }
         defaults.set(typingArea.text, forKey: "mainAffairString")
         view.endEditing(true)
@@ -109,14 +103,11 @@ class MainViewController: UIViewController, UITextViewDelegate {
         hideKeyboard()
     }
     
-//    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-//        if let tv = object as? UITextView {
-//            var topCorrect: CGFloat? = (tv.bounds.size.height - tv.contentSize.height * tv.zoomScale) / 2.0
-//            topCorrect = (topCorrect! < CGFloat(0.0) ? 0.0 : topCorrect)
-//            tv.contentOffset = CGPoint()
-//            tv.contentOffset.x = 0
-//            tv.contentOffset.y = -topCorrect!
-//        }
-//    }
-    
+    @IBAction func showSettings(_ sender: UIButton) {
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
+        self.addChildViewController(popOverVC)
+        popOverVC.view.frame = self.view.frame
+        self.view.addSubview(popOverVC.view)
+        popOverVC.didMove(toParentViewController: self)
+    }
 }
