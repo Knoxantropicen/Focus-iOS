@@ -29,10 +29,14 @@ struct PushNotification {
     
     public func push() {
         let content = UNMutableNotificationContent()
-        content.title = "Focus"
+        if isQuestion {
+            content.title = "May the idea be with you:"
+        } else {
+            content.title = "Do it right now:"
+        }
         content.body = title
         content.categoryIdentifier = "message"
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true)
         let request = UNNotificationRequest(identifier: "focus.message", content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }

@@ -16,10 +16,11 @@ class MainViewController: UIViewController, UITextViewDelegate {
 //    var contentSize = CGSize()
     static var text = PushNotification()
     static var typingText: String = ""
+    static var isQuestion = true
     
     var isGrantedNotificationAccess: Bool = false
     
-    private let textModel = "Type your sentence here..."
+    let textModel = "Type your sentence here..."
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,28 +48,31 @@ class MainViewController: UIViewController, UITextViewDelegate {
             MainViewController.typingText = "(Swipe back and add something...)"
         } else {
             MainViewController.typingText = typingArea.text
-            
-            MainViewController.text.replace(title: typingArea.text, dateCreated: Date(timeIntervalSinceNow: 0), isQuestion: true)
         }
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         textView.alpha = 1
+        MainViewController.typingText = textView.text
+        print(MainViewController.typingText)
         if textView.text == textModel {
             textView.text = ""
         }
         if text.contains("\n") {
             hideKeyboard()
-            MainViewController.text.replace(title: typingArea.text, dateCreated: Date(timeIntervalSinceNow: 0), isQuestion: true)
             return false
         }
         return true
     }
     
     func hideKeyboard() {
+        
         if typingArea.text == "" {
             typingArea.text = textModel
+            MainViewController.typingText = textModel
             typingArea.alpha = 0.3
+        } else {
+            MainViewController.typingText = typingArea.text
         }
         view.endEditing(true)
     }
