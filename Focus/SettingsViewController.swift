@@ -13,6 +13,8 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        timeInterval.datePickerMode = .countDownTimer
+        timeInterval.countDownDuration = TimeInterval(60)
         showAnimate()
     }
 
@@ -48,6 +50,16 @@ class SettingsViewController: UIViewController {
 //            self.descriptionText.backgroundColor = UIColor(colorLiteralRed: 245/255, green: 245/255, blue: 245/255, alpha: 1)
         })
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "enableSwipe"), object: nil)
+    }
+    
+    @IBAction func notificationEnabled(_ sender: UISwitch) {
+        
+    }
+    
+    @IBOutlet weak var timeInterval: UIDatePicker!
+    
+    @IBAction func intervalPicker(_ sender: UIDatePicker) {
+        
     }
     
 
