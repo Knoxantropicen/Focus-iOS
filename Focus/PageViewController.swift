@@ -8,9 +8,17 @@
 
 import UIKit
 
+<<<<<<< HEAD
 class PageViewController: UIPageViewController, UIScrollViewDelegate {
     
     static var currentPage: Int = 1
+=======
+class PageViewController: UIPageViewController, UIScrollViewDelegate, UIGestureRecognizerDelegate{
+    
+    static var currentPage: Int = 1
+    
+    private var firstLaunch = true
+>>>>>>> Test commit
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +38,7 @@ class PageViewController: UIPageViewController, UIScrollViewDelegate {
         if let myView = view?.subviews.first as? UIScrollView {
             myView.canCancelContentTouches = false
         }
+<<<<<<< HEAD
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -46,6 +55,72 @@ class PageViewController: UIPageViewController, UIScrollViewDelegate {
         if PageViewController.currentPage == 0 && scrollView.contentOffset.x < scrollView.bounds.size.width {
             scrollView.contentOffset = CGPoint(x: scrollView.bounds.size.width, y: 0)
         } else if PageViewController.currentPage == 2 && scrollView.contentOffset.x > scrollView.bounds.size.width {
+=======
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(enableSwipe), name:NSNotification.Name(rawValue: "enableSwipe"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(disableSwipe), name:NSNotification.Name(rawValue: "disableSwipe"), object: nil)
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.backgroundColor = Style.mainBackgroundColor
+        
+        if firstLaunch {
+            if let doingAffairArray = UserDefaults.standard.array(forKey: "DoingAffairArray") {
+                DoingTableViewController.affairs = doingAffairArray as! Array<String>
+            }
+            if let doingModeArray = UserDefaults.standard.array(forKey: "DoingModeArray") {
+                DoingTableViewController.modes = doingModeArray as! Array<String>
+            }
+            if let doneAffairArray = UserDefaults.standard.array(forKey: "DoneAffairArray") {
+                DoneTableViewController.affairs = doneAffairArray as! Array<String>
+            }
+            if let doneModeArray = UserDefaults.standard.array(forKey: "DoneModeArray") {
+                DoneTableViewController.modes = doneModeArray as! Array<String>
+            }
+            if let descriptionArray = UserDefaults.standard.array(forKey: "DescriptionArray") {
+                DoneTableViewController.descriptions = descriptionArray as! Array<String>
+            }
+            firstLaunch = false
+        }
+//        UserDefaults.standard.set(Array<String>(), forKey: "DoingAffairArray");
+//        UserDefaults.standard.set(Array<String>(), forKey: "DoingModeArray");
+//        UserDefaults.standard.set(Array<String>(), forKey: "DoneAffairArray");
+//        UserDefaults.standard.set(Array<String>(), forKey: "DoneModeArray");
+    }
+    
+    func disableSwipe(notification: NSNotification){
+        self.dataSource = nil
+    }
+    
+    func enableSwipe(notification: NSNotification){
+        self.dataSource = self
+    }
+    
+//    func get_uuid() -> String {
+//        let userid = UserDefaults.standard.string(forKey: "knox")
+//        if userid != nil {
+//            return userid!
+//        } else {
+//            let uuid_ref = CFUUIDCreate(nil)
+//            let uuid_string_ref = CFUUIDCreateString(nil , uuid_ref)
+//            let uuid = uuid_string_ref! as String
+//            UserDefaults.standard.set(uuid, forKey: "knox")
+//            return uuid
+//        }
+//    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if (PageViewController.currentPage == 0 && scrollView.contentOffset.x < scrollView.bounds.size.width) || (PageViewController.currentPage == 2 && scrollView.contentOffset.x > scrollView.bounds.size.width) {
+            scrollView.contentOffset = CGPoint(x: scrollView.bounds.size.width, y: 0)
+        }
+    }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        if (PageViewController.currentPage == 0 && scrollView.contentOffset.x < scrollView.bounds.size.width) || (PageViewController.currentPage == 2 && scrollView.contentOffset.x > scrollView.bounds.size.width) {
+>>>>>>> Test commit
             scrollView.contentOffset = CGPoint(x: scrollView.bounds.size.width, y: 0)
         }
     }
@@ -66,6 +141,12 @@ extension PageViewController: UIPageViewControllerDataSource {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
+<<<<<<< HEAD
+=======
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.backgroundColor = Style.mainBackgroundColor
+        
+>>>>>>> Test commit
         guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
             return nil
         }
@@ -96,6 +177,12 @@ extension PageViewController: UIPageViewControllerDataSource {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
+<<<<<<< HEAD
+=======
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.backgroundColor = Style.mainBackgroundColor
+        
+>>>>>>> Test commit
         guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
             return nil
         }
@@ -112,11 +199,15 @@ extension PageViewController: UIPageViewControllerDataSource {
         
         let nextIndex = viewControllerIndex + 1
         let orderedViewControllersCount = orderedViewControllers.count
+<<<<<<< HEAD
         
         guard orderedViewControllersCount != nextIndex else {
             return nil
         }
         
+=======
+
+>>>>>>> Test commit
         guard orderedViewControllersCount > nextIndex else {
             return nil
         }
