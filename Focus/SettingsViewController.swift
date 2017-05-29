@@ -32,6 +32,7 @@ class SettingsViewController: UIViewController {
         timeIntervalSetting.datePickerMode = .countDownTimer
         timeIntervalSetting.countDownDuration = TimeInterval(60)
         
+        languageSetting.isEnabled = false   // Leave to further support for Chinese
         showAnimate()
     }
 
