@@ -17,15 +17,15 @@ class DoneTableViewController: UITableViewController {
     private let defaults = UserDefaults.standard
     
     func setDefaults() {
-        defaults.set(DoneTableViewController.affairs, forKey: "DoneAffairArray");
-        defaults.set(DoneTableViewController.modes, forKey: "DoneModeArray");
+        defaults.set(DoneTableViewController.affairs, forKey: "DoneAffairArray")
+        defaults.set(DoneTableViewController.modes, forKey: "DoneModeArray")
         defaults.set(DoneTableViewController.descriptions, forKey: "DescriptionArray")
     }
     
     func addAffair(newAffair affair: String, newMode mode: String) {
         DoneTableViewController.affairs.insert(affair, at: 0)
         DoneTableViewController.modes.insert(mode, at: 0)
-        DoneTableViewController.descriptions.insert("Click 'Edit' to add description...", at: 0)
+        DoneTableViewController.descriptions.insert(Language.editModel, at: 0)
         setDefaults()
     }
     
@@ -138,9 +138,10 @@ class DoneTableViewController: UITableViewController {
                         Path.initialIndexPath = nil
                         My.cellSnapshot!.removeFromSuperview()
                         My.cellSnapshot = nil
+                        self.tableView.reloadData()
                     }
                 })
-                self.tableView.reloadData()
+//                self.tableView.reloadData()
             }
         }
     }
@@ -163,6 +164,14 @@ class DoneTableViewController: UITableViewController {
     func showPopUp(rowNum: Int) {
         let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PopUpViewController") as! PopUpViewController
         popOverVC.rowNum = rowNum
+        self.addChildViewController(popOverVC)
+        popOverVC.view.frame = self.view.frame
+        self.view.addSubview(popOverVC.view)
+        popOverVC.didMove(toParentViewController: self)
+    }
+    
+    @IBAction func showConfirmation(_ sender: UIButton) {
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ConfirmViewController") as! ConfirmViewController
         self.addChildViewController(popOverVC)
         popOverVC.view.frame = self.view.frame
         self.view.addSubview(popOverVC.view)
@@ -194,6 +203,12 @@ class DoneTableViewController: UITableViewController {
             for subView in mainCell.contentView.subviews {
                 if let textLabelView = subView as? UILabel {
                     textLabelView.textColor = Style.mainTextColor
+                    if textLabelView.text != "" {
+                        textLabelView.text = Language.done
+                    }
+                }
+                if let buttonView = subView as? UIButton {
+                    buttonView.setImage(Style.deleteIcon, for: .normal)
                 }
             }
             return mainCell

@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Focus.xcodeproj">
+      location = "group:/Users/KnoxTYS/Desktop/Programming/swift/Focus/Focuson.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

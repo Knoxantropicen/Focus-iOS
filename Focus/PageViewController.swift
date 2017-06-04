@@ -57,10 +57,10 @@ class PageViewController: UIPageViewController, UIScrollViewDelegate, UIGestureR
             }
             firstLaunch = false
         }
-//        UserDefaults.standard.set(Array<String>(), forKey: "DoingAffairArray");
-//        UserDefaults.standard.set(Array<String>(), forKey: "DoingModeArray");
-//        UserDefaults.standard.set(Array<String>(), forKey: "DoneAffairArray");
-//        UserDefaults.standard.set(Array<String>(), forKey: "DoneModeArray");
+        
+        
+        
+        
     }
     
     func disableSwipe(notification: NSNotification){
@@ -104,12 +104,20 @@ class PageViewController: UIPageViewController, UIScrollViewDelegate, UIGestureR
     private(set) lazy var orderedViewControllers: [UIViewController] = {
         return [self.functionViewController(page: "Doing"),
                 self.functionViewController(page: "Main"),
-                self.functionViewController(page: "Done")]
+                self.functionViewController(page: "Done")/*,
+                self.functionViewController(page: "Settings")*/]
     }()
     
     private func functionViewController(page: String) -> UIViewController {
         return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"\(page)ViewController")
     }
+    
+//    func presentationCount(for pageViewController: UIPageViewController) -> Int {
+//        return 3
+//    }
+//    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+//        return PageViewController.currentPage
+//    }
 }
 
 extension PageViewController: UIPageViewControllerDataSource {
@@ -167,7 +175,7 @@ extension PageViewController: UIPageViewControllerDataSource {
         }
         
         let nextIndex = viewControllerIndex + 1
-        let orderedViewControllersCount = orderedViewControllers.count
+        let orderedViewControllersCount = 3
 
         guard orderedViewControllersCount > nextIndex else {
             return nil

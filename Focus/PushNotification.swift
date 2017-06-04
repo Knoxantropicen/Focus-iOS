@@ -11,28 +11,57 @@ import UserNotifications
 
 struct PushNotification {
     
-    var title = ""
-    var dateCreated = Date(timeIntervalSince1970: 0)
-    var isQuestion = true
+    static var title = ""
+    static var timeInterval : TimeInterval = 60
+    static var isNotificationEnabled = false
     
-    public mutating func replace(title: String, dateCreated: Date, isQuestion: Bool) {
-        self.dateCreated = dateCreated
-        self.title = title
-        self.isQuestion = isQuestion
-        push()
+    static let standardDefaults = UserDefaults.standard
+    static let widgetDefaults = UserDefaults(suiteName: "group.knox.Focuson.extension")
+    
+    public static func push() {
+        
+        var text = ""
+        var revMode = false
+        
+        if let widgetText = widgetDefaults?.string(forKey: "mainAffairString") {
+            text = widgetText
+        } else {
+            if let mainText = standardDefaults.string(forKey: "mainAffairString") {
+                text = mainText
+            }
+        }
+        
+        if let widgetMode = widgetDefaults?.bool(forKey: "mainModeRevBool") {
+            revMode = widgetMode
+        } else {
+            revMode = standardDefaults.bool(forKey: "mainModeRevBool")
+        }
+        
+        if text != "" && text != Language.chineseMainModel && text != Language.englishMainModel {
+            PushNotification.title = text
+            if (!revMode) {
+                PushNotification.title.append("?")
+            }
+            else {
+                PushNotification.title.append("!")
+            }
+            let content = UNMutableNotificationContent()
+            content.body = PushNotification.title
+            content.categoryIdentifier = "message"
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: PushNotification.timeInterval, repeats: true)
+            let request = UNNotificationRequest(identifier: "focus.message", content: content, trigger: trigger)
+            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        } else {
+            PushNotification.remove()
+        }
     }
     
-    public mutating func update(dateModified: Date) {
-        self.dateCreated = dateModified
-        push()
-    }
-    
-    public func push() {
+    public static func remove() {
         let content = UNMutableNotificationContent()
-        content.title = "Focus"
-        content.body = title
+        content.title = ""
+        content.body = ""
         content.categoryIdentifier = "message"
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: false)
         let request = UNNotificationRequest(identifier: "focus.message", content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }

@@ -29,16 +29,35 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        
+        settingsLabel.text = Language.settings
+        notificationLabel.text = Language.notification
+        intervalLabel.text = Language.timeInterval
+        themeLabel.text = Language.theme
+        themeSetting.setTitle(Language.light, forSegmentAt: 0)
+        themeSetting.setTitle(Language.dark, forSegmentAt: 1)
+        languageLabel.text = Language.language
+        languageSetting.setTitle(Language.english, forSegmentAt: 0)
+        languageSetting.setTitle(Language.chinese, forSegmentAt: 1)
+        saveButton.setTitle(Language.save, for: .normal)
+        
         timeIntervalSetting.datePickerMode = .countDownTimer
         timeIntervalSetting.countDownDuration = TimeInterval(60)
         
-        languageSetting.isEnabled = false   // Leave to further support for Chinese
         showAnimate()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func notificationEnabled(_ sender: UISwitch) {
+        if sender.isOn {
+            timeIntervalSetting.isEnabled = true
+        } else {
+            timeIntervalSetting.isEnabled = false
+        }
     }
     
     func setThemeColor() {
@@ -53,10 +72,45 @@ class SettingsViewController: UIViewController {
     }
     
     func setOptions() {
+        
+        if let widgetNotificationStatus = UserDefaults(suiteName: "group.knox.Focuson.extension")?.bool(forKey: "notificationEnabled") {
+            if widgetNotificationStatus {
+                UserDefaults.standard.set(true, forKey: "notificationEnabled")
+            } else {
+                UserDefaults.standard.set(false, forKey: "notificationEnabled")
+            }
+            defaults.set(true, forKey: "veryFirstLaunch")
+        }
+        
+        notificationSetting.isOn = UserDefaults.standard.bool(forKey: "notificationEnabled")
+        
+        if notificationSetting.isOn {
+            timeIntervalSetting.isEnabled = true
+        } else {
+            timeIntervalSetting.isEnabled = false
+        }
+        
+        if let timeInterval = UserDefaults.standard.object(forKey: "timeInterval") {
+            timeIntervalSetting.countDownDuration = timeInterval as! TimeInterval
+        }
+        
         if Style.lightMode {
             themeSetting.selectedSegmentIndex = 0
         } else {
             themeSetting.selectedSegmentIndex = 1
+        }
+        
+        if Language.EnglishLanguage {
+            languageSetting.selectedSegmentIndex = 0
+        } else {
+            languageSetting.selectedSegmentIndex = 1
+        }
+        
+        if !defaults.bool(forKey: "veryFirstLaunch") {
+            notificationSetting.isOn = false
+            timeIntervalSetting.isEnabled = false
+            timeIntervalSetting.countDownDuration = 60
+            defaults.set(true, forKey: "veryFirstLaunch")
         }
     }
     
@@ -76,32 +130,46 @@ class SettingsViewController: UIViewController {
     func removeAnimate() {
         UIView.animate(withDuration: 0.25, animations: {
             self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-            self.view.alpha = 0.0;
+            self.view.alpha = 0.0
         }, completion:{(finished : Bool)  in
             if (finished)
             {
                 self.view.removeFromSuperview()
             }
-//            self.descriptionText.backgroundColor = UIColor(colorLiteralRed: 245/255, green: 245/255, blue: 245/255, alpha: 1)
         })
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "enableSwipe"), object: nil)
     }
     
     @IBAction func saveSettings(_ sender: UIButton) {
         removeAnimate()
+        
         // Notification
+        if notificationSetting.isOn {
+            UserDefaults.standard.set(true, forKey: "notificationEnabled")
+            UserDefaults(suiteName: "group.knox.Focuson.extension")?.set(true, forKey: "notificationEnabled")
+        } else {
+            UserDefaults.standard.set(false, forKey: "notificationEnabled")
+            UserDefaults(suiteName: "group.knox.Focuson.extension")?.set(false, forKey: "notificationEnabled")
+        }
+        PushNotification.isNotificationEnabled = notificationSetting.isOn
         
         // Time Interval
+        UserDefaults.standard.set(timeIntervalSetting.countDownDuration, forKey: "timeInterval")
+        PushNotification.timeInterval = timeIntervalSetting.countDownDuration
         
         // Theme
-        if themeSetting.selectedSegmentIndex == 0 {
+        if self.themeSetting.selectedSegmentIndex == 0 {
             Style.themeLight()
         } else {
             Style.themeDark()
         }
         
         // Language
-        
+        if languageSetting.selectedSegmentIndex == 0 {
+            Language.setEnglish()
+        } else {
+            Language.setChinese()
+        }
         
         // Activate
         self.view.superview?.backgroundColor = Style.mainBackgroundColor
@@ -109,6 +177,11 @@ class SettingsViewController: UIViewController {
             if let textView = subView as? UITextView {
                 textView.backgroundColor = Style.mainBackgroundColor
                 textView.textColor = Style.mainTextColor
+                if textView.text == Language.englishMainModel && !Language.EnglishLanguage {
+                    textView.text = Language.chineseMainModel
+                } else if textView.text == Language.chineseMainModel && Language.EnglishLanguage {
+                    textView.text = Language.englishMainModel
+                }
             }
             if let stackView = subView as? UIStackView {
                 for subsubView in stackView.subviews {
@@ -133,17 +206,6 @@ class SettingsViewController: UIViewController {
                 }
             }
         }
+        
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

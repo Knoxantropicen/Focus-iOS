@@ -18,15 +18,15 @@ class DoingTableViewController: UITableViewController {
     func addAffair(newAffair affair: String, newMode mode: String) {
         DoingTableViewController.affairs.insert(affair, at: 0)
         DoingTableViewController.modes.insert(mode, at: 0)
-        defaults.set(DoingTableViewController.affairs, forKey: "DoingAffairArray");
-        defaults.set(DoingTableViewController.modes, forKey: "DoingModeArray");
+        defaults.set(DoingTableViewController.affairs, forKey: "DoingAffairArray")
+        defaults.set(DoingTableViewController.modes, forKey: "DoingModeArray")
     }
     
     func deleteAffair(deletingAffair index: Int) {
         let doneTable = DoneTableViewController()
         doneTable.addAffair(newAffair: DoingTableViewController.affairs.remove(at: index), newMode: DoingTableViewController.modes.remove(at: index))
-        defaults.set(DoingTableViewController.affairs, forKey: "DoingAffairArray");
-        defaults.set(DoingTableViewController.modes, forKey: "DoingModeArray");
+        defaults.set(DoingTableViewController.affairs, forKey: "DoingAffairArray")
+        defaults.set(DoingTableViewController.modes, forKey: "DoingModeArray")
     }
     
     override func viewDidLoad() {
@@ -42,6 +42,38 @@ class DoingTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         self.tableView.reloadData()
         view.backgroundColor = Style.mainBackgroundColor
+    }
+    
+    @IBAction func returnAffair(_ sender: UIButton) {
+        if DoingTableViewController.affairs.count == 0 {
+            return
+        }
+        if defaults.string(forKey: "mainAffairString") == Language.mainModel {
+            let replaceText = DoingTableViewController.affairs.remove(at: 0)
+            let replaceMode = DoingTableViewController.modes.remove(at: 0)
+            tableView.deleteRows(at: [IndexPath(row: 0, section: 1)], with: UITableViewRowAnimation.bottom)
+            tableView.reloadData()
+            defaults.set(DoingTableViewController.affairs, forKey: "DoingAffairArray")
+            defaults.set(DoingTableViewController.modes, forKey: "DoingModeArray")
+            
+            defaults.set(true, forKey: "outerReplaced")
+            defaults.set(replaceText, forKey: "mainAffairString")
+            UserDefaults(suiteName: "group.knox.Focuson.extension")?.set(replaceText, forKey: "mainAffairString")
+            UserDefaults(suiteName: "group.knox.Focuson.extension")?.set(replaceMode, forKey: "mainAffairMode")
+            if replaceMode == "?" {
+                MainViewController.isQuestion = true
+            } else {
+                MainViewController.isQuestion = false
+            }
+            defaults.set(!MainViewController.isQuestion, forKey: "mainModeRevBool")
+            UserDefaults(suiteName: "group.knox.Focuson.extension")?.set(!MainViewController.isQuestion, forKey: "mainModeRevBool")
+            return
+        }
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AlertViewController") as! AlertViewController
+        self.addChildViewController(popOverVC)
+        popOverVC.view.frame = self.view.frame
+        self.view.addSubview(popOverVC.view)
+        popOverVC.didMove(toParentViewController: self)
     }
     
     func longPressGestureRecognized(_ gestureRecognizer: UIGestureRecognizer) {
@@ -129,8 +161,10 @@ class DoingTableViewController: UITableViewController {
                         Path.initialIndexPath = nil
                         My.cellSnapshot!.removeFromSuperview()
                         My.cellSnapshot = nil
+                        self.tableView.reloadData()
                     }
                 })
+//                self.tableView.reloadData()
             }
         }
     }
@@ -155,8 +189,6 @@ class DoingTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: false)
     }
 
-    // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -176,6 +208,12 @@ class DoingTableViewController: UITableViewController {
             for subView in mainCell.contentView.subviews {
                 if let textLabelView = subView as? UILabel {
                     textLabelView.textColor = Style.mainTextColor
+                    if textLabelView.text != "" {
+                        textLabelView.text = Language.doing
+                    }
+                }
+                if let buttonView = subView as? UIButton {
+                    buttonView.setImage(Style.returnIcon, for: .normal)
                 }
             }
             return mainCell

@@ -12,7 +12,6 @@ class PopUpViewController: UIViewController {
     
     static var popingUp = false
     
-    private let textModel = "Click 'Edit' to add description..."
     var rowNum: Int = 0
 
     @IBOutlet weak var viewFrame: UIView!
@@ -23,32 +22,38 @@ class PopUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        
+        viewFrame.backgroundColor = Style.popBackgroundColor
+        descriptionText.backgroundColor = Style.cellBackgroundColor
+        
+        let textColor = Style.mainTextColor
+        descriptionLabel.textColor = textColor
+        descriptionText.textColor = textColor
+        closeButton.setTitleColor(textColor, for: .normal)
+        editButton.setTitleColor(textColor, for: .normal)
+        
+        descriptionLabel.text = Language.description
+        closeButton.setTitle(Language.close, for: .normal)
+        editButton.setTitle(Language.edit, for: .normal)
         
         let tapGesture = UITapGestureRecognizer(target: self, action:#selector(hideKeyboard))
         view.addGestureRecognizer(tapGesture)
         
         self.showAnimate()
     }
-    
-    func setThemeColor() {
-        viewFrame.backgroundColor = Style.popBackgroundColor
-        descriptionText.backgroundColor = Style.cellBackgroundColor
-        let textColor = Style.mainTextColor
-        descriptionLabel.textColor = textColor
-        descriptionText.textColor = textColor
-        closeButton.setTitleColor(textColor, for: .normal)
-        editButton.setTitleColor(textColor, for: .normal)
-    }
-    
     func showAnimate() {
-        setThemeColor()
         
         PopUpViewController.popingUp = true
         
         descriptionText.text = DoneTableViewController.descriptions[rowNum]
-        if descriptionText.text == textModel {
+        if descriptionText.text == Language.englishEditModel && !Language.EnglishLanguage {
+            descriptionText.text = Language.chineseEditModel
+        } else if descriptionText.text == Language.chineseEditModel && Language.EnglishLanguage {
+            descriptionText.text = Language.englishEditModel
+        }
+        
+        if descriptionText.text == Language.editModel {
             descriptionText.alpha = 0.3
         }
         self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
@@ -62,7 +67,7 @@ class PopUpViewController: UIViewController {
     
     func hideKeyboard() {
         if descriptionText.text == "" {
-            descriptionText.text = textModel
+            descriptionText.text = Language.editModel
             descriptionText.alpha = 0.3
         }
         view.endEditing(true)
@@ -75,7 +80,7 @@ class PopUpViewController: UIViewController {
         descriptionText.isEditable = true
         descriptionText.becomeFirstResponder()
         descriptionText.alpha = 1
-        if descriptionText.text == textModel {
+        if descriptionText.text == Language.editModel {
             descriptionText.selectedTextRange = descriptionText.textRange(from: descriptionText.beginningOfDocument, to: descriptionText.endOfDocument)
         } else {
             descriptionText.selectedRange = NSRange(location: descriptionText.text.lengthOfBytes(using: .utf8), length: 0)
@@ -91,7 +96,7 @@ class PopUpViewController: UIViewController {
     func removeAnimate() {
         UIView.animate(withDuration: 0.25, animations: {
             self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-            self.view.alpha = 0.0;
+            self.view.alpha = 0.0
         }, completion:{(finished : Bool)  in
             if (finished)
             {

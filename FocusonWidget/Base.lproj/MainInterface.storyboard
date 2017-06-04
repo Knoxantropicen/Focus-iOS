@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Today View Controller-->
+        <scene sceneID="cwh-vc-ff4">
+            <objects>
+                <viewController id="M4Y-Lb-cyx" customClass="TodayViewController" customModule="FocusonWidget" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ft6-oW-KC0"/>
+                        <viewControllerLayoutGuide type="bottom" id="FKl-LY-JtV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="CZZ-he-oE7">
+                                <rect key="frame" x="16" y="0.0" width="288" height="80"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello World" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="GcN-lo-r42">
+                                        <rect key="frame" x="0.0" y="0.0" width="218.66666666666666" height="80"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view clearsContextBeforeDrawing="NO" alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mpq-uT-XSU">
+                                        <rect key="frame" x="228.66666666666663" y="25" width="0.33333333333334281" height="30"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="1" id="SP9-w6-Sc2"/>
+                                            <constraint firstAttribute="height" constant="30" id="zpi-HF-MWc"/>
+                                        </constraints>
+                                    </view>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rZS-uh-G1P">
+                                        <rect key="frame" x="239" y="24.666666666666664" width="51" height="30.999999999999993"/>
+                                        <connections>
+                                            <action selector="changeNotification:" destination="M4Y-Lb-cyx" eventType="valueChanged" id="S2R-IK-ibz"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="GcN-lo-r42" firstAttribute="height" secondItem="CZZ-he-oE7" secondAttribute="height" id="hkD-s5-zB1"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="CZZ-he-oE7" firstAttribute="height" secondItem="S3S-Oj-5AN" secondAttribute="height" id="8yC-9d-vU1"/>
+                            <constraint firstItem="CZZ-he-oE7" firstAttribute="centerY" secondItem="S3S-Oj-5AN" secondAttribute="centerY" id="VUc-uV-JSF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rZS-uh-G1P" secondAttribute="trailing" id="aUc-wi-6ok"/>
+                            <constraint firstItem="CZZ-he-oE7" firstAttribute="width" secondItem="S3S-Oj-5AN" secondAttribute="width" multiplier="9:10" id="fTK-GY-wQd"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="GcN-lo-r42" secondAttribute="leading" id="jLr-cP-HKw"/>
+                            <constraint firstItem="CZZ-he-oE7" firstAttribute="centerX" secondItem="S3S-Oj-5AN" secondAttribute="centerX" id="tdv-nd-aLP"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="80"/>
+                    <connections>
+                        <outlet property="affairLabel" destination="GcN-lo-r42" id="xkb-gn-WWs"/>
+                        <outlet property="notificationSwitch" destination="rZS-uh-G1P" id="A3m-Xf-0rS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="49.600000000000001" y="66.566716641679164"/>
+        </scene>
+    </scenes>
+</document>
